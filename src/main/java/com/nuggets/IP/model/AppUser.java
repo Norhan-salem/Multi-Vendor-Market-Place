@@ -1,9 +1,11 @@
 package com.nuggets.IP.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +18,17 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id", nullable = false)
-    private Long userId;
+    private Long userID;
+
+    @Email
+    @Column(name = "email", nullable = false, unique = true, length = 320)
+    private String email;
+
+    @Column(name = "username", nullable = false, unique = true)
+    private String username;
+
+    @Column(name = "password", nullable = false, length = 1000)
+    private String password;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -24,31 +36,21 @@ public class AppUser {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "user_name", nullable = false)
-    private String userName;
+    @ElementCollection
+    @Column(name = "phone_number", length = 20)
+    @CollectionTable(name = "app_user_phoneNumber", joinColumns = @JoinColumn(name = "user_id"))
+    private List<String> phoneNumber = new ArrayList<>();
 
-    @Column(name = "email", nullable = false, unique = true, length = 320)
-    private String email;
+    @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews = new ArrayList<>();
 
-    @Column(name = "password", nullable = false, unique = true, length = 1000)
-    private String password;
+    @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> placedOrders = new ArrayList<>();
 
-    @Column(name = "cart_id", nullable = false, unique = true)
-    private Long cartId;
+    @OneToOne(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Cart cart;
 
-    @Column(name = "total_price", nullable = false)
-    private Double totalPrice;
-
-    @Column(name = "creation_date", nullable = false)
-    private LocalDate creationDate;
-
-    @Column(name = "last_updated_date", nullable = false)
-    private LocalDate lastUpdatedDate;
-
-    @Column(name = "coupon_code")
-    private String couponCode;
-
-    @Column(name = "number_of_items", nullable = false)
-    private Integer numberOfItems;
+    @ManyToMany(mappedBy = "appUsers")
+    private List<WishItem> wishItems = new ArrayList<>();
 
 }
