@@ -7,9 +7,7 @@ import jakarta.persistence.OneToMany;
 import lombok.*;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,12 +27,12 @@ public class Seller extends AppUser {
     private List<Order> receivedOrders = new ArrayList<>();
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "sellerReviews", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> receivedReviews = new ArrayList<>();
 
     @ToString.Exclude
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Product> products = new LinkedHashSet<>();
+    private List<Product> products = new ArrayList<>();
 
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<StatisticWidgets> statisticWidgets = new ArrayList<>();

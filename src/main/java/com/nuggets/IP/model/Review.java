@@ -32,7 +32,7 @@ public class Review {
     private Product productReview;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "seller_reviews_id")
-    private Seller sellerReviews;
+    @JoinColumn(name = "seller_review_id")
+    private Seller seller;
 
 }
