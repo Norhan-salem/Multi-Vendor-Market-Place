@@ -7,11 +7,14 @@ import io.github.cdimascio.dotenv.Dotenv;
 public class AsutApplication {
 
 	public static void main(String[] args) {
-		Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
+		try {
+			Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
 
-		// Set the environment variables
-		System.setProperty("spring.datasource.username", dotenv.get("DB_USERNAME"));
-		System.setProperty("spring.datasource.password", dotenv.get("DB_PASSWORD"));
+			// Set the environment variables
+			System.setProperty("spring.datasource.username", dotenv.get("DB_USERNAME"));
+			System.setProperty("spring.datasource.password", dotenv.get("DB_PASSWORD"));
+		}
+		catch (Exception e){}
 		SpringApplication.run(AsutApplication.class, args);}
 
 }
