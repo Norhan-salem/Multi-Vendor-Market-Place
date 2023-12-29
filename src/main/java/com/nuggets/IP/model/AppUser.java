@@ -44,7 +44,7 @@ public class AppUser {
     private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Order> placedOrders = new ArrayList<>();
+    private List<AppOrder> placedOrders = new ArrayList<>();
 
     @OneToOne(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
     private Cart cart;

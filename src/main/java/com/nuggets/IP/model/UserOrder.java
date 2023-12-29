@@ -29,6 +29,6 @@ public class UserOrder {
     private AppUser appUser;
 
     @ManyToOne
-    private Order order;
+    private AppOrder order;
 
 }

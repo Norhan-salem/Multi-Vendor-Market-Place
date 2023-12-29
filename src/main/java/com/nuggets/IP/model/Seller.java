@@ -24,7 +24,7 @@ public class Seller extends AppUser {
 
     @ToString.Exclude
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Order> receivedOrders = new ArrayList<>();
+    private List<AppOrder> receivedOrders = new ArrayList<>();
 
     @ToString.Exclude
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)

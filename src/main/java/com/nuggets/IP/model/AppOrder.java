@@ -12,8 +12,8 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Table(name = "order")
-public class Order {
+@Table(name = "app_order")
+public class AppOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "order_id", nullable = false)

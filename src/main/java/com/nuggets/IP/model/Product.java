@@ -43,7 +43,7 @@ public class Product {
     @JoinTable(name = "product_orders",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "order_id"))
-    private List<Order> orders = new ArrayList<>();
+    private List<AppOrder> orders = new ArrayList<>();
 
     @ToString.Exclude
     @OneToMany(mappedBy = "productReview", cascade = CascadeType.ALL, orphanRemoval = true)
