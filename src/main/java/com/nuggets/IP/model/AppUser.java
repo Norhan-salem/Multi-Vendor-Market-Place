@@ -36,10 +36,7 @@ public class AppUser {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @ElementCollection
-    @Column(name = "phone_number", length = 20)
-    @CollectionTable(name = "app_user_phoneNumber", joinColumns = @JoinColumn(name = "user_id"))
-    private List<String> phoneNumber = new ArrayList<>();
+
 
     @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews = new ArrayList<>();
@@ -52,5 +49,8 @@ public class AppUser {
 
     @ManyToMany(mappedBy = "appUsers")
     private List<WishItem> wishItems = new ArrayList<>();
+
+    @Column(name = "phone_number", nullable = false, unique = true, length = 20)
+    private String phoneNumber;
 
 }
