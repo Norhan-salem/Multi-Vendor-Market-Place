@@ -33,5 +33,6 @@ build/
 .vscode/
 .env
 
+### h2 ###
 ./data/asu_trade.trace.db
 
