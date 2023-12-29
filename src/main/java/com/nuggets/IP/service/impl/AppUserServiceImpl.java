@@ -4,6 +4,8 @@ import com.nuggets.IP.exception.AppUserAlreadyExistsException;
 import com.nuggets.IP.model.AppUser;
 import com.nuggets.IP.model.repository.AppUserRepository;
 import com.nuggets.IP.service.AppUserService;
+import com.nuggets.IP.service.EncryptionService;
+import com.nuggets.IP.service.JWTService;
 import com.nuggets.IP.web.rest.request.AppUserRegistrationBody;
 import com.nuggets.IP.web.rest.request.LoginBody;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +20,10 @@ public class AppUserServiceImpl implements AppUserService {
     private AppUserRepository appUserRepository;
 
     @Autowired
-    private EncryptionServiceImpl encryptionService;
+    private EncryptionService encryptionService;
 
     @Autowired
-    private JWTServiceImpl jwtService;
+    private JWTService jwtService;
 
     public AppUserServiceImpl(AppUserRepository appUserRepository, EncryptionServiceImpl encryptionService) {
         this.appUserRepository = appUserRepository;

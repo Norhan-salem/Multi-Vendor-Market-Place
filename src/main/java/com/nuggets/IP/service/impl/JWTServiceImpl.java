@@ -21,7 +21,7 @@ public class JWTServiceImpl implements JWTService {
 
 
 
-    private Algorithm algorithm;
+    private static Algorithm algorithm;
 
     private static final String USERNAME_CLAIM = "username";
 
@@ -36,4 +36,11 @@ public class JWTServiceImpl implements JWTService {
                 .withExpiresAt(new java.util.Date(System.currentTimeMillis() + expiration * 1000L))
                 .sign(algorithm);
     }
+
+    @Override
+    public String getUsernameFromToken(String token) {
+        return JWT.require(algorithm).build().verify(token).getClaim(USERNAME_CLAIM).asString();
+    }
+
+
 }

@@ -28,7 +28,6 @@ public class AuthenticationResource {
         responseMap.put("result", appUser);
         return new ResponseEntity<>(responseMap, HttpStatus.OK);
     }
-
     @PostMapping("/login")
     public @ResponseBody ResponseEntity<Map<String,Object>> login(@Valid @RequestBody LoginBody loginBody) {
         String jwtToken = appUserService.login(loginBody);
