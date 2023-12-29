@@ -5,8 +5,11 @@ import com.nuggets.IP.model.AppUser;
 import com.nuggets.IP.model.repository.AppUserRepository;
 import com.nuggets.IP.service.AppUserService;
 import com.nuggets.IP.web.rest.request.AppUserRegistrationBody;
+import com.nuggets.IP.web.rest.request.LoginBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class AppUserServiceImpl implements AppUserService {
@@ -14,8 +17,15 @@ public class AppUserServiceImpl implements AppUserService {
     @Autowired
     private AppUserRepository appUserRepository;
 
-    public AppUserServiceImpl(AppUserRepository appUserRepository) {
+    @Autowired
+    private EncryptionServiceImpl encryptionService;
+
+    @Autowired
+    private JWTServiceImpl jwtService;
+
+    public AppUserServiceImpl(AppUserRepository appUserRepository, EncryptionServiceImpl encryptionService) {
         this.appUserRepository = appUserRepository;
+        this.encryptionService = encryptionService;
     }
 
     @Override
@@ -26,12 +36,22 @@ public class AppUserServiceImpl implements AppUserService {
         }
         AppUser appUser = new AppUser();
         appUser.setUsername(registrationBody.getUsername());
-        appUser.setPassword(registrationBody.getPassword());
-        // TODO: encrypt password
+        appUser.setPassword(encryptionService.encryptPassword(registrationBody.getPassword()));
         appUser.setEmail(registrationBody.getEmail());
         appUser.setFirstName(registrationBody.getFirstName());
         appUser.setLastName(registrationBody.getLastName());
         appUser.setPhoneNumber(registrationBody.getPhoneNumber());
         return appUserRepository.save(appUser);
+    }
+
+    @Override
+    public String login(LoginBody loginBody) {
+        Optional<AppUser> appUser = appUserRepository.findByUsernameIgnoreCase(loginBody.getUsername());
+        if (appUser.isPresent()) {
+            if (encryptionService.verifyPassword(loginBody.getPassword(), appUser.get().getPassword())) {
+                return jwtService.generateJWTToken(appUser.get());
+            }
+        }
+        return null;
     }
 }
