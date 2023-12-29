@@ -16,12 +16,10 @@ import java.util.Optional;
 @Service
 public class AppUserServiceImpl implements AppUserService {
 
-
+    @Autowired
     private final AppUserRepository appUserRepository;
-
+    @Autowired
     private final EncryptionService encryptionService;
-
-    private JWTService jwtService;
 
     public AppUserServiceImpl(AppUserRepository appUserRepository, EncryptionServiceImpl encryptionService) {
         this.appUserRepository = appUserRepository;

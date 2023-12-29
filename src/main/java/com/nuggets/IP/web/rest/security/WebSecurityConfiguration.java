@@ -23,9 +23,12 @@ public class WebSecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.csrf().disable().cors().disable();
+
         httpSecurity.addFilterBefore(jwtRequestFilter, AuthorizationFilter.class);
         httpSecurity.authorizeHttpRequests((
-                authz) -> authz.requestMatchers("/product", "/auth/user-register", "/auth/login").permitAll()
+                authz) -> authz.requestMatchers("/product").permitAll()
+                        .requestMatchers("/auth/**").permitAll()
                         .anyRequest().authenticated())
                         .httpBasic(withDefaults());
         return httpSecurity.build();

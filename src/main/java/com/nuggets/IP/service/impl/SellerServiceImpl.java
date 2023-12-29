@@ -39,7 +39,7 @@ public class SellerServiceImpl implements SellerService {
         seller.setPhoneNumber(registrationBody.getPhoneNumber());
         seller.setLocation(registrationBody.getLocation());
         seller.setNeighborhood(registrationBody.getNeighborhood());
-        
+
         return appUserRepository.save(seller);
     }
 }

@@ -8,6 +8,7 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Inheritance(strategy = InheritanceType.JOINED)
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
