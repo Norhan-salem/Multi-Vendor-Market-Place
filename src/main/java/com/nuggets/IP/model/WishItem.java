@@ -22,8 +22,8 @@ public class WishItem extends Product {
     @ToString.Exclude
     @ManyToMany
     @JoinTable(name = "APP_USERS_WISH_ITEMS",
-            joinColumns = @JoinColumn(name = "wish_Item_id"),
-            inverseJoinColumns = @JoinColumn(name = "app_Users_id"))
+            joinColumns = @JoinColumn(name = "WISH_ITEM_ID"),
+            inverseJoinColumns = @JoinColumn(name = "APP_USERS_ID"))
     private List<AppUser> appUsers = new ArrayList<>();
 
 }
