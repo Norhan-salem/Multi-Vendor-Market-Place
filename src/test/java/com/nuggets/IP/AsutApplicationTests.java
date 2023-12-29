@@ -14,8 +14,8 @@ class AsutApplicationTests {
 			Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
 
 			// Set the environment variables as system properties
-			System.setProperty("db_username", dotenv.get("DB_USERNAME"));
-			System.setProperty("db_password", dotenv.get("DB_PASSWORD"));
+			System.setProperty("DB_USERNAME", dotenv.get("DB_USERNAME"));
+			System.setProperty("DB_PASSWORD", dotenv.get("DB_PASSWORD"));
 		}
 		catch (Exception e){}
 	}

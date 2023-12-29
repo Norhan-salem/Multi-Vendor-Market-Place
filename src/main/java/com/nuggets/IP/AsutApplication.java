@@ -11,8 +11,8 @@ public class AsutApplication {
 			Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
 
 			// Set the environment variables
-			System.setProperty("spring.datasource.username", dotenv.get("DB_USERNAME"));
-			System.setProperty("spring.datasource.password", dotenv.get("DB_PASSWORD"));
+			System.setProperty("DB_USERNAME", dotenv.get("DB_USERNAME"));
+			System.setProperty("DB_PASSWORD", dotenv.get("DB_PASSWORD"));
 		}
 		catch (Exception e){}
 		SpringApplication.run(AsutApplication.class, args);}
