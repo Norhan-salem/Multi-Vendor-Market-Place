@@ -8,6 +8,4 @@ import com.nuggets.IP.web.rest.request.LoginBody;
 public interface AppUserService {
 
     AppUser register(AppUserRegistrationBody registrationBody) throws AppUserAlreadyExistsException;
-
-    String login(LoginBody loginBody);
 }

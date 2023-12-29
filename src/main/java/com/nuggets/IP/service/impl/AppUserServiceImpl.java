@@ -16,13 +16,11 @@ import java.util.Optional;
 @Service
 public class AppUserServiceImpl implements AppUserService {
 
-    @Autowired
-    private AppUserRepository appUserRepository;
 
-    @Autowired
-    private EncryptionService encryptionService;
+    private final AppUserRepository appUserRepository;
 
-    @Autowired
+    private final EncryptionService encryptionService;
+
     private JWTService jwtService;
 
     public AppUserServiceImpl(AppUserRepository appUserRepository, EncryptionServiceImpl encryptionService) {
@@ -46,14 +44,4 @@ public class AppUserServiceImpl implements AppUserService {
         return appUserRepository.save(appUser);
     }
 
-    @Override
-    public String login(LoginBody loginBody) {
-        Optional<AppUser> appUser = appUserRepository.findByUsernameIgnoreCase(loginBody.getUsername());
-        if (appUser.isPresent()) {
-            if (encryptionService.verifyPassword(loginBody.getPassword(), appUser.get().getPassword())) {
-                return jwtService.generateJWTToken(appUser.get());
-            }
-        }
-        return null;
-    }
 }
