@@ -28,10 +28,18 @@ public class ProductResource {
         return productService.getAllProducts();
     }
 
-    @PostMapping
-    public @ResponseBody ResponseEntity<Map<String,Object>> createProduct(@RequestBody ProductBody productBody) {
-        Map<String,Object> responseMap = new HashMap<>();
-        responseMap.put("result", productService.createProduct(productBody));
-        return new ResponseEntity<>(responseMap, HttpStatus.OK);
+    @PostMapping("/create")
+    public @ResponseBody ResponseEntity<Map<String, Object>> createProduct(@RequestBody ProductBody productBody) {
+        try {
+            Product product = productService.createProduct(productBody);
+            Map<String, Object> responseMap = new HashMap<>();
+            responseMap.put("result", product);
+//            responseMap.put("result", "Product created successfully");
+            return new ResponseEntity<>(responseMap, HttpStatus.OK);
+//            return ResponseEntity.ok(responseMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 }

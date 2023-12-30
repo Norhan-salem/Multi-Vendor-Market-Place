@@ -1,5 +1,6 @@
 package com.nuggets.IP.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,6 +35,7 @@ public class Product {
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
+    @JsonIgnore
     @ToString.Exclude
     @ManyToMany
     @JoinTable(name = "product_carts",
@@ -41,6 +43,7 @@ public class Product {
             inverseJoinColumns = @JoinColumn(name = "cart_id"))
     private List<Cart> carts = new ArrayList<>();
 
+    @JsonIgnore
     @ToString.Exclude
     @ManyToMany
     @JoinTable(name = "product_orders",
@@ -48,10 +51,12 @@ public class Product {
             inverseJoinColumns = @JoinColumn(name = "order_id"))
     private List<AppOrder> orders = new ArrayList<>();
 
+    @JsonIgnore
     @ToString.Exclude
     @OneToMany(mappedBy = "productReview", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews = new ArrayList<>();
 
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "seller_id", nullable = false)
     private Seller seller;
