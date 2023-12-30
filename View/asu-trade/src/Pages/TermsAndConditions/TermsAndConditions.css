@@ -5,7 +5,8 @@
     background-image: url('/src/Assets/termsandconditionsbg.png');
     background-size: 100%;
     background-repeat: no-repeat;
-    background-position: right 30px bottom;
+    background-position: absolute;
+    background-attachment: fixed;
 }
 
 .terms-and-conditions h1{

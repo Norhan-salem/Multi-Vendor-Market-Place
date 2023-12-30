@@ -37,7 +37,7 @@ const Footer = () => {
                     <FontAwesomeIcon icon={faSquareFacebook} className="social-icon"/>
                     <FontAwesomeIcon icon={faInstagramSquare} className="social-icon"/>
                     </div>
-                    <NavLink><button><FontAwesomeIcon icon={faChevronUp} className="footer-icon"/></button></NavLink>
+                    <button onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronUp} className="footer-icon"/></button>
                 </div>
 
             </div>

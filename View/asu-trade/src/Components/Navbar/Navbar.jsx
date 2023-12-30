@@ -5,29 +5,32 @@ import { NavLink } from "react-router-dom";
 import{faUser} from '@fortawesome/free-regular-svg-icons'
 import logo from '../../Assets/logo.png'
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+
 
 const Navbar = () => {
-    const [user, setUser] = useState({});
+
+    const [user, setUser] = useState({username: 'Username'});
 
     useEffect(() => {
-        const fetchUserData = async () => {
-          try {
-            const response = await axios.get('/endpoint');
-            setUser({ name: response.data.username, email: response.data.email });
-          } catch (error) {
-            console.error(error);
-          }
-        };
-  
-      fetchUserData();
+        // Retrieve data from cookie when component mounts
+        var retrievedCookie = document.cookie;
+        var userInfoCookie = retrievedCookie.split('; ').find(row => row.startsWith('userInfo'));
+    
+        if (userInfoCookie) {
+            var username = userInfoCookie.split('=')[1];
+    
+            // Update state with retrieved user data
+            setUser(username);
+        }
     }, []);
+    
+
     return (
 
         <div className="Navbar">
             <img src={logo} alt="Logo" className="logo"/>
                 <nav className="NavLinks">
-                    <NavLink to="/Signup">Home</NavLink>
+                    <NavLink to="/Home">Home</NavLink>
                     <NavLink to="/Signup" className="Products">Products
                         <nav className="SubNav">
                         <NavLink to="/Signup"><FontAwesomeIcon icon={faMicrochip} className="SubNavIcon"/> Electronics</NavLink>
@@ -48,7 +51,6 @@ const Navbar = () => {
                     <FontAwesomeIcon icon={faUser} id="ProfileNavIcon"/>
                     <nav className="SubNav">
                         <NavLink to="/Signup"><FontAwesomeIcon icon={faUser} className="SubNavIcon"/>{user.username || 'Username'}</NavLink>
-                        <p>{user.email || 'Email'}</p>
                         <NavLink to="/Signup"><FontAwesomeIcon icon={faBagShopping} className="SubNavIcon"/>Orders</NavLink>
                         <NavLink to="/Signup"><FontAwesomeIcon icon={faHeart} className="SubNavIcon"/>Wish List</NavLink>
                         <NavLink to="/Signup"><FontAwesomeIcon icon={faCircleDollarToSlot} className="SubNavIcon"/>Payments</NavLink>

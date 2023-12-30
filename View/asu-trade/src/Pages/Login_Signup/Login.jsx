@@ -7,6 +7,7 @@ import {faEnvelope, faKey, faEye, faEyeSlash } from '@fortawesome/free-solid-svg
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
+import Cookies from 'js-cookie';
 
 const Login = () => {
 
@@ -23,7 +24,19 @@ const Login = () => {
                         username: username,
                         password: password
                     });
+
+                    Cookies.set('authenticationToken', response.data.token);
+                    var username = document.getElementById("username").value;
+                
+                    // Create user data object
+                    var user = {
+                        username: username
+                    };
+        
+                    // Save data to cookie
+                    document.cookie = "userInfo=" + JSON.stringify(user);
                     console.log(response);
+                    
                 } catch (error) {
                     console.log(error);
                 }
@@ -44,7 +57,7 @@ const Login = () => {
                             <div className="login_signup_fields">
                                 <div className="input-container">
                                     <FontAwesomeIcon icon={faEnvelope} className="input-icon"/>
-                                    <input type="email" placeholder="E-mail Address" value={username} onChange={e => setUsername(e.target.value)} required></input>
+                                    <input type="text" placeholder="Username" id="username" value={username} onChange={e => setUsername(e.target.value)} required></input>
                                 </div>
                                 <div className="input-container">
                                     <FontAwesomeIcon icon={faKey} className="input-icon"/>
