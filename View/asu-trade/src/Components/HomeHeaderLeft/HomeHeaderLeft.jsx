@@ -1,6 +1,7 @@
 import "./HomeHeaderLeft.css";
 import Dome from "../../Assets/Dome.png";
 import Button from "../Button/Button";
+import { NavLink } from "react-router-dom";
 
 export default function HomeHeaderLeft() {
 	return (
@@ -8,9 +9,12 @@ export default function HomeHeaderLeft() {
 			<img src={Dome} className="dome-logo" />
 			<h1>ASU TRADE</h1>
 			<Button>Buy</Button>
-			<Button textColor="#FF1F00" backColor="#FFF">
+			{/* just linked the sell button to seller signup */}
+			<NavLink to="/SellerSignup" >
+				<Button textColor="#FF1F00" backColor="#FFF">
 				Sell
-			</Button>
+				</Button>
+			</NavLink>
 		</div>
 	);
 }

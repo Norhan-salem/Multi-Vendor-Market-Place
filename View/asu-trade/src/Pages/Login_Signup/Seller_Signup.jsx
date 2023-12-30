@@ -67,7 +67,7 @@ const Seller_Signup = () => {
                                     <option value="Heliopolis">Heliopolis</option>
                                     <option value="Madinaty">Madinaty</option>
                                     <option value="Madinet Nasr">Madinet Nasr</option>
-                                    <option value="El-Asema El-Edariya">El-Asema El-Edariya</option>
+                                    <option value="El-Asema El-Edariya">El-Aasema El-Edariya</option>
                                     <option value="Masr El-Gedida">Masr El-Gedida</option>
                                 </select>
                             </div>

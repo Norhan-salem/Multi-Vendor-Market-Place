@@ -83,6 +83,18 @@ export async function handleSignup(event, userType, firstname, lastname, phonenu
             phonenumber: phonenumber
         });
         console.log(response);
+        console.log(response);
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+    
+        // Create user data object
+        var user = {
+            username: username,
+            email: email
+        };
+
+        // Save data to cookie
+        document.cookie = "userInfo=" + JSON.stringify(user);
     } catch (error) {
         console.log(error);
     }
