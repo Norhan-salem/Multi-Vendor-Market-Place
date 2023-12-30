@@ -35,7 +35,7 @@ const Signup = () => {
                 </div>
                 <div>
                     <h1>Create your account</h1>
-                    <form onSubmit={(event) => handleSignup(event, userType, firstname, lastname, phonenumber, password, confirmPassword, username, email, location = null, neighborhood = null)}>
+                    <form onSubmit={(event) => {handleSignup(event, firstname, lastname, phonenumber, password, confirmPassword, username, email)}}>
                         <div className="login_signup_fields">
                             <div className="input-container">
                                 <FontAwesomeIcon icon={faUser} className="input-icon"/>
@@ -74,7 +74,7 @@ const Signup = () => {
                             <p>I agree to all <Link to='/TermsAndConditions'>Terms & Conditions</Link></p>
                         </div>
 
-                        <NavLink className="submit-form"><button type="submit" className="CreatAccountMainButton">Create Account</button></NavLink>
+                        <input type="submit" value={"Create Account"} className="CreatAccountMainButton"/>
 
                         <div className="login_signup_alternative">
                             <hr/>

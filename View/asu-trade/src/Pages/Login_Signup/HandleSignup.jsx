@@ -1,22 +1,15 @@
 import axios from "axios";
 
-export async function handleSignup(event, userType, firstname, lastname, phonenumber, password, confirmPassword, username, email, location = null, neighborhood = null) {
+export async function handleSellerSignup(event, location, neighborhood) {
     event.preventDefault();
     
-    if (userType === 'seller'){
         if (!location || !neighborhood) {
           alert('Sellers must provide a location and neighborhood.');
           return;
         }
         // actual seller-signup
         try {
-            const response = await axios.post('/seller-register', {
-                username: username,
-                password: password,
-                email: email,
-                firstname: firstname,
-                lastname: lastname,
-                phonenumber: phonenumber,
+            const response = await axios.post('/auth/seller-register', {
                 location: location,
                 neighborhood: neighborhood
             });
@@ -25,6 +18,12 @@ export async function handleSignup(event, userType, firstname, lastname, phonenu
             console.log(error);
         }
     }
+    
+
+export async function handleSignup(event, firstname, lastname, phonenumber, password, confirmPassword, username, email) {
+    event.preventDefault();
+
+    /*
     // Check if both names are greater than 3 characters
     if (firstname.length <= 3 || lastname.length <= 3) {
         alert('Both first name and last name must be atleast 3 characters.');
@@ -70,7 +69,7 @@ export async function handleSignup(event, userType, firstname, lastname, phonenu
     if (password !== confirmPassword) {
         alert('Passwords do not match.');
         return;
-    }
+    }*/
 
     // Actual user-signup
     try {
@@ -83,14 +82,11 @@ export async function handleSignup(event, userType, firstname, lastname, phonenu
             phoneNumber: phonenumber
         });
         console.log(response);
-        console.log(response);
         var username = document.getElementById("username").value;
-        var email = document.getElementById("email").value;
     
         // Create user data object
         var user = {
-            username: username,
-            email: email
+            username: username
         };
 
         // Save data to cookie
