@@ -1,0 +1,25 @@
+.home-main-card {
+	display: flex;
+	flex-direction: column;
+	margin-top: 2rem;
+	border-radius: 5px;
+	box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+	margin: 1rem;
+}
+
+.home-main-card img {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.home-main-card span {
+	margin: 0.5rem;
+}
+
+.home-main-card .home-card-price {
+	font-weight: 600;
+}
+
+.home-main-card .home-card-seller {
+	color: #ff1f00;
+	font-weight: 600;
+}

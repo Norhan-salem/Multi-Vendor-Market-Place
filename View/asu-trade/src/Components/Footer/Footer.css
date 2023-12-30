@@ -1,0 +1,138 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 300px;
+    background-color: black;
+    font-family:  Arial, Helvetica, sans-serif;
+}
+
+.footer h5{
+    font-weight: 400;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer a{
+    text-decoration: none;
+    font-size: 16px;
+    color: #cbcbcb;
+}
+
+.footer div{
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.Copyright{
+    height: 10%;
+    color: #cbcbcb;
+    background-color: #ff1f00;
+    font-family:  Arial, Helvetica, sans-serif;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 12px;
+    justify-content: center;
+}
+
+.Copyright a{
+    display: flex-end;
+    text-decoration: none;
+    color: #cbcbcb;
+    justify-content: center;
+    margin-left: 800px;
+}
+
+.Copyright a:last-child{
+    margin-left:40px;
+}
+
+.c-icon{
+    width:16px;
+    height:16px;
+    margin-left: 100px;
+    justify-content: center;
+    margin-right: 5px;
+}
+
+.input-container{
+    position: relative;
+    margin-bottom: 15px; 
+}
+
+.input-container h5{
+    margin-left: 80px;
+}
+
+.input-container button{
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    margin-left: 220px;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.input-container button:hover{
+    color:#ff1f00;
+}
+
+.email-input {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    border-radius: 10px;
+    border: 2px solid #cbcbcb;
+    height: 40px;
+    width: 280px;
+}
+
+.email-input input[type="email"] {
+    flex-grow: 1;
+    color: white;
+    background-color: transparent;
+    height: 40px;
+    width: 150px;
+    border:none;
+    caret-color: #ff1f00;
+    
+}
+
+.email-input input[type="email"]:focus {
+    outline: none;
+}
+
+.newsletter-icon {
+    color: white;
+    padding: 10px;
+}
+
+.social-icon{
+    color: white;
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+}
+
+.contact-icon{
+    color: #cbcbcb;
+    margin-right: 10px;
+    margin-top: 10px;
+    
+}
+.ContactUs{
+    color: #cbcbcb;
+}
+.ContactUs span{
+    font-size: 16px;
+}
+.ContactUs h5{
+    color: white;
+}
+
+
+
+
