@@ -12,4 +12,10 @@ public interface ReviewService {
     Review editReview(ReviewBody reviewBody);
     void deleteReview(Long reviewId);
     List<Review> getUserReviews(String username) throws ReviewDoesNotExistException;
+
+    List<Review> getProductReviews(Long productId) throws ReviewDoesNotExistException;
+
+    List<Review> getSellerReviews(Long sellerId) throws ReviewDoesNotExistException;
+
+    List<Review> getReviewsByUser(Long appUserId) throws ReviewDoesNotExistException;
 }

@@ -58,4 +58,19 @@ public class ReviewServiceImpl implements ReviewService {
     public List<Review> getUserReviews(String username) throws ReviewDoesNotExistException {
         return reviewRepository.findByAppUser_Username(username).orElseThrow(() -> new ReviewDoesNotExistException("Review does not exist"));
     }
+
+    @Override
+    public List<Review> getProductReviews(Long productId) throws ReviewDoesNotExistException {
+        return reviewRepository.findByProductReview_Id(productId).orElseThrow(() -> new ReviewDoesNotExistException("Review does not exist"));
+    }
+
+    @Override
+    public List<Review> getSellerReviews(Long sellerId) throws ReviewDoesNotExistException {
+        return reviewRepository.findBySeller_Id(sellerId).orElseThrow(() -> new ReviewDoesNotExistException("Review does not exist"));
+    }
+
+    @Override
+    public List<Review> getReviewsByUser(Long appUserId) throws ReviewDoesNotExistException {
+        return reviewRepository.findByAppUser_Id(appUserId).orElseThrow(() -> new ReviewDoesNotExistException("Review does not exist"));
+    }
 }

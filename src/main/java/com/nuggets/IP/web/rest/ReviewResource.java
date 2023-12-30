@@ -38,6 +38,45 @@ public class ReviewResource {
         }
     }
 
+    @GetMapping("/{productId}")
+    public @ResponseBody ResponseEntity<Map<String,Object>> getProductReviews(@PathVariable("productId") Long productId) throws ReviewDoesNotExistException {
+        try{
+            List<Review> reviews = reviewService.getProductReviews(productId);
+            Map<String,Object> responseMap = new HashMap<>();
+            responseMap.put("result", reviews);
+            return new ResponseEntity<>(responseMap, HttpStatus.OK);
+        }
+        catch (ReviewDoesNotExistException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/{sellerId}")
+    public @ResponseBody ResponseEntity<Map<String,Object>> getSellerReviews(@PathVariable("sellerId") Long sellerId) throws ReviewDoesNotExistException {
+        try{
+            List<Review> reviews = reviewService.getSellerReviews(sellerId);
+            Map<String,Object> responseMap = new HashMap<>();
+            responseMap.put("result", reviews);
+            return new ResponseEntity<>(responseMap, HttpStatus.OK);
+        }
+        catch (ReviewDoesNotExistException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/{appUserId}")
+    public @ResponseBody ResponseEntity<Map<String,Object>> getUserReviews(@PathVariable("appUserId") Long appUserId) throws ReviewDoesNotExistException {
+        try{
+            List<Review> reviews = reviewService.getReviewsByUser(appUserId);
+            Map<String,Object> responseMap = new HashMap<>();
+            responseMap.put("result", reviews);
+            return new ResponseEntity<>(responseMap, HttpStatus.OK);
+        }
+        catch (ReviewDoesNotExistException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @PostMapping
     public @ResponseBody ResponseEntity<Map<String,Object>> createReview(@RequestBody ReviewBody reviewBody) {
         Map<String,Object> responseMap = new HashMap<>();
