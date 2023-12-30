@@ -23,7 +23,8 @@ public class AppOrderResource {
     }
 
     @GetMapping
-    public List<AppOrder> getOrdersForUser(@AuthenticationPrincipal AppUser user) throws OrderNotExistsException {
+    public List<AppOrder> getOrdersForUser(@AuthenticationPrincipal AppUser user) throws OrderNotExistsException
+    {
         return appOrderService.getOrdersForUser(user);
     }
 }
