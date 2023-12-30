@@ -5,8 +5,7 @@ import VendorAddress from '../../Components/Vendor Address/VendorAddress'
 
 function VendorData(){
     return(
-        <div>
-            <div className="all">
+        <div className="all">
             <div className='FChild'>
                 <VendorProfile/>
             </div>
@@ -16,7 +15,6 @@ function VendorData(){
             <div className='SChild'>
                 <VendorAddress/>
             </div>
-        </div>
         </div>
     )
 }

@@ -6,6 +6,8 @@ import Seller_Signup from "./Pages/Login_Signup/Seller_Signup";
 import Search from './Pages/Search/Search';
 import NoPage from './Pages/NoPage/NoPage';
 import TermsAndConditions from './Pages/TermsAndConditions/TermsAndConditions';
+import WishList from './Pages/Wish List/WishList';
+import Cart from './Pages/Cart/Cart';
 
 
 const router = createBrowserRouter(
@@ -24,7 +26,9 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <RouterProvider router={router}/>
+    <div>
+      <Cart/>
+    </div>
 
   );
 }
