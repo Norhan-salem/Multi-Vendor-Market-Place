@@ -1,4 +1,3 @@
-import React from "react";
 import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faSearch, faMicrochip, faPencil, faLaptop, faHeadset, faHeart, faMobileScreenButton, faBagShopping, faCircleDollarToSlot, faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons'
@@ -63,3 +62,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
