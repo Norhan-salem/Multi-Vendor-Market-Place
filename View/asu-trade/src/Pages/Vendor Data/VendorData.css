@@ -1,0 +1,26 @@
+.all{
+    background-color: white;
+    width: 1128px;
+    height: 300px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin-left: 100px;
+    border-radius: 8px;
+}
+
+.FChild{
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.SChild{
+    width: 392px;
+    height: 264px;
+    border-radius: 8px;
+    background-color: white;
+    margin-left: 24px;
+}
