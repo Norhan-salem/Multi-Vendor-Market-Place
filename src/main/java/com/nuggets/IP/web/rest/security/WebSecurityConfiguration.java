@@ -10,6 +10,7 @@ import org.springframework.security.web.access.intercept.AuthorizationFilter;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+@SuppressWarnings("removal")
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfiguration {

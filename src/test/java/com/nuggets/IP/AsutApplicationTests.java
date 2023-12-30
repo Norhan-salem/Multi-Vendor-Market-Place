@@ -23,4 +23,5 @@ class AsutApplicationTests {
 	void contextLoads() {
 	}
 
+
 }
