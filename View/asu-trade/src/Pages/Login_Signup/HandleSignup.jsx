@@ -74,13 +74,13 @@ export async function handleSignup(event, userType, firstname, lastname, phonenu
 
     // Actual user-signup
     try {
-        const response = await axios.post('/user-register', {
+        const response = await axios.post('/auth/user-register', {
             username: username,
             password: password,
             email: email,
             firstname: firstname,
             lastname: lastname,
-            phonenumber: phonenumber
+            phoneNumber: phonenumber
         });
         console.log(response);
         console.log(response);
