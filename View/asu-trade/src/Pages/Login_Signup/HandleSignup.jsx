@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export async function handleSignup(event, userType, firstname, lastname, phonenumber, password, confirmPassword, username, email, location = null, neighborhood = null) {
+export async function handleSignup(event, firstname, lastname, phonenumber, password, confirmPassword, username, email, location = null, neighborhood = null) {
     event.preventDefault();
-    
+    /*
     if (userType === 'seller'){
         if (!location || !neighborhood) {
           alert('Sellers must provide a location and neighborhood.');
@@ -24,7 +24,8 @@ export async function handleSignup(event, userType, firstname, lastname, phonenu
         } catch (error) {
             console.log(error);
         }
-    }
+    }*/
+    /*
     // Check if both names are greater than 3 characters
     if (firstname.length <= 3 || lastname.length <= 3) {
         alert('Both first name and last name must be atleast 3 characters.');
@@ -70,7 +71,7 @@ export async function handleSignup(event, userType, firstname, lastname, phonenu
     if (password !== confirmPassword) {
         alert('Passwords do not match.');
         return;
-    }
+    }*/
 
     // Actual user-signup
     try {

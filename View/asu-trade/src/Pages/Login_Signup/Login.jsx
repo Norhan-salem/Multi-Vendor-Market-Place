@@ -75,7 +75,7 @@ const Login = () => {
                             <p>Keep me logged in</p>
                         </div>
 
-                        <NavLink className="submit-form"><button type="submit" className="CreatAccountMainButton">Log in</button></NavLink>
+                        <input type="submit" className="CreatAccountMainButton">Log in</input>
 
                         <div className="login_signup_alternative">
                             <hr/>
