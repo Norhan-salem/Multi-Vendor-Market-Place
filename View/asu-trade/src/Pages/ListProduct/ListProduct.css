@@ -1,0 +1,77 @@
+.list-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-product form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    border: 2px solid black; 
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 1); 
+    padding: 70px; 
+    border-radius: 10px;
+}
+
+.list-product form .category,
+.list-product form .product-details {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-bottom: 1em;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.list-product form .product-details input,
+.list-product form .product-details textarea {
+    margin-bottom: 20px;
+    height: 50px; 
+    border-radius: 10px; 
+    caret-color: #ff1f00;
+    text-indent: 10px;
+    border: 2px solid #cbcbcb;
+
+}
+
+.list-product form .product-details textarea {
+    height: 100px;
+}
+
+
+.list-product form input[type="reset"] {
+    margin-right: 1em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.buttons input[type="reset"],
+.buttons input[type="submit"] {
+    border-radius: 7px;
+    width: 150px;
+    height: 40px;
+    border: 2px solid #ff1f00;
+}
+
+#sell-button{
+    background-color:#ff1f00;
+    color: white;
+}
+
+#cancel-button{
+    color: #ff1f00;
+    background-color: white;
+}
+
+label{
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+
