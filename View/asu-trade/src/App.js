@@ -12,6 +12,7 @@ import Search from "./Pages/Search/Search";
 import NoPage from "./Pages/NoPage/NoPage";
 import TermsAndConditions from "./Pages/TermsAndConditions/TermsAndConditions";
 import HomePage from "./Pages/HomePage/HomePage";
+import ProductPage from "./Pages/ProductPage/ProductPage";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -21,8 +22,12 @@ const router = createBrowserRouter(
 			<Route path="/Login" element={<Login />} />
 			<Route path="/Search" element={<Search />} />
 			<Route path="/SellerSignup" element={<Seller_Signup />} />
-			<Route path="/TermsAndConditions" element={<TermsAndConditions />}/>
+			<Route
+				path="/TermsAndConditions"
+				element={<TermsAndConditions />}
+			/>
 			<Route path="/Home" element={<HomePage />} />
+			<Route path="/ProductPage" element={<ProductPage />} />
 			<Route path="/*" element={<NoPage />} />
 		</Route>
 	)
