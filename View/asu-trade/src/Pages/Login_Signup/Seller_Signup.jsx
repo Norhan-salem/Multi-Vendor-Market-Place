@@ -1,32 +1,51 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import '../Login_Signup/Login_Signup.css'
-import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faUser, faEnvelope, faKey, faEye, faEyeSlash, faPhone, faLocationDot, faHome } from '@fortawesome/free-solid-svg-icons'
-import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons'
-import TermsAndConditions from '../TermsAndConditions/TermsAndConditions';
-import Login from '../Login_Signup/Login';
+import { faLocationDot, faMagnifyingGlassLocation } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../../Components/Navbar/Navbar';
-import { handleSignup } from "./HandleSignup";
+import { handleSellerSignup } from "./HandleSignup";
+
 
 const Seller_Signup = () => {
 
-    const [username, setUsername] = useState('');
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [email, setEmail] = useState('');
-    const [location, setLocation] = useState('');
-    const [neighborhood, setNeighborhood] = useState('');
-    const [phonenumber, setPhonenumber] = useState();
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [isPassword1Visible, setIsPassword1Visible] = useState(false);
-    const [isPassword2Visible, setIsPassword2Visible] = useState(false);
-    const userType = 'seller';
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+
 
     return (
         <>
+        <Navbar/>
+        <div className="login_signup">
+            <div className="vendor-container">
+                <div className="vendor-title">
+                    <p>Become a Vendor</p>
+                </div>
+                <div>
+                    <h1>Add selling information</h1>
+                    <form onSubmit={(event) => {handleSellerSignup(event, city, address)}}>
+                        <div className="login_signup_fields">
+                            <div className="input-container">
+                                <FontAwesomeIcon icon={faMagnifyingGlassLocation} className="vendor-icon"/>
+                                <input type="text" placeholder="Address" value={address} onChange={e => setAddress(e.target.value)} required></input>
+                            </div>
+                            <div className="input-container">
+                                <FontAwesomeIcon icon={faLocationDot} className="vendor-icon"/>
+                                <input type="text" placeholder="City" value={city} onChange={e => setCity(e.target.value)} required></input>
+                            </div>
+                        </div>
+
+                        <div className="login_signup_CB">
+                            <input type="checkbox" name="checkbox-agreetoterms" id="login_signup_checkbox" required/>
+                            <p>I agree to all <Link to='/TermsAndConditions'>Terms & Conditions</Link></p>
+                        </div>
+
+                        <input type="submit" value={"Register"} className="CreatAccountMainButton"/>
+                    </form>
+                </div>
+            </div>
+        </div>
         </>
     )
 }

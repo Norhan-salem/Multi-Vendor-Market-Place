@@ -75,7 +75,7 @@ const Login = () => {
                             <p>Keep me logged in</p>
                         </div>
 
-                        <input type="submit" className="CreatAccountMainButton">Log in</input>
+                        <input type="submit" value={"Log in"} className="CreatAccountMainButton"></input>
 
                         <div className="login_signup_alternative">
                             <hr/>

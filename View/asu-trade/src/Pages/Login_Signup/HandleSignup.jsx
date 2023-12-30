@@ -1,22 +1,15 @@
 import axios from "axios";
 
-export async function handleSignup(event, firstname, lastname, phonenumber, password, confirmPassword, username, email, location = null, neighborhood = null) {
+export async function handleSellerSignup(event, location, neighborhood) {
     event.preventDefault();
-    /*
-    if (userType === 'seller'){
+    
         if (!location || !neighborhood) {
           alert('Sellers must provide a location and neighborhood.');
           return;
         }
         // actual seller-signup
         try {
-            const response = await axios.post('/seller-register', {
-                username: username,
-                password: password,
-                email: email,
-                firstname: firstname,
-                lastname: lastname,
-                phonenumber: phonenumber,
+            const response = await axios.post('/auth/seller-register', {
                 location: location,
                 neighborhood: neighborhood
             });
@@ -24,7 +17,12 @@ export async function handleSignup(event, firstname, lastname, phonenumber, pass
         } catch (error) {
             console.log(error);
         }
-    }*/
+    }
+    
+
+export async function handleSignup(event, firstname, lastname, phonenumber, password, confirmPassword, username, email) {
+    event.preventDefault();
+
     /*
     // Check if both names are greater than 3 characters
     if (firstname.length <= 3 || lastname.length <= 3) {
