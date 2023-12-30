@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.access.intercept.AuthorizationFilter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -21,13 +21,13 @@ public class WebSecurityConfiguration {
         this.jwtRequestFilter = jwtRequestFilter;
     }
 
+    @SuppressWarnings("removal")
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable().cors().disable();
-
-        httpSecurity.addFilterBefore(jwtRequestFilter, AuthorizationFilter.class);
+        httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         httpSecurity.authorizeHttpRequests((
-                authz) -> authz.requestMatchers("/product").permitAll()
+                authz) -> authz
                         .requestMatchers("/auth/**").permitAll()
                         .anyRequest().authenticated())
                         .httpBasic(withDefaults());

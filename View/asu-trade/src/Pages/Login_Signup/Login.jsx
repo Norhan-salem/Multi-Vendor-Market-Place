@@ -20,7 +20,7 @@ const Login = () => {
 
             // Actual login
                try {
-                    const response = await axios.post('/Login', {
+                    const response = await axios.post('/auth/login', {
                         username: username,
                         password: password
                     });
