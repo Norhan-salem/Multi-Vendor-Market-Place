@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    font-size: 14px;
+    color: #717171;
+    margin-left: 8px;
+}
+
+.Child{
+    width: 392px;
+    height: 72px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 72px;
+
+}
+
+.iconnn{
+    font-size: 22px;
+    margin-left: 16px;
+}
+
+.editt{
+    font-size: 24px;
+    color: #ff1f00;
+}
+
+.editt:hover{
+    font-size: 28px;
+    transition: .3s;
+}
+
+.buy{
+    border: none;
+    background-color: transparent;
+    float: right;
+    margin-right: 8px;
+    line-height: 72px;
+    vertical-align: middle;
+}
