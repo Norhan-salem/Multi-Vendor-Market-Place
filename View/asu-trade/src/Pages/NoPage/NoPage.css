@@ -1,0 +1,15 @@
+.bg{
+    height: 100vh;
+    width: 100%;
+}
+.nopage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.nopage img{
+    height: 70%;
+    width: 60%;
+}
