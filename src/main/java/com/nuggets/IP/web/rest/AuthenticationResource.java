@@ -21,6 +21,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AuthenticationResource {
 
     @Autowired
@@ -31,7 +32,7 @@ public class AuthenticationResource {
     private LoginService loginService;
 
     @PostMapping("/user-register")
-    public @ResponseBody ResponseEntity<Map<String,Object>> userRegister(@Valid @RequestBody AppUserRegistrationBody registrationBody) throws AppUserAlreadyExistsException {
+    public @ResponseBody ResponseEntity<Map<String,Object>> userRegister(@RequestBody AppUserRegistrationBody registrationBody){
         try {
             AppUser appUser = appUserService.register(registrationBody);
 
@@ -45,7 +46,7 @@ public class AuthenticationResource {
     }
 
    @PostMapping("/seller-register")
-   public @ResponseBody ResponseEntity<Map<String,Object>> sellerRegister(@Valid @RequestBody SellerRegistrationBody registrationBody) throws AppUserAlreadyExistsException {
+   public @ResponseBody ResponseEntity<Map<String,Object>> sellerRegister(@Valid @RequestBody SellerRegistrationBody registrationBody){
         try{
             Seller seller = sellerService.register(registrationBody);
             Map<String,Object> responseMap = new HashMap<>();
