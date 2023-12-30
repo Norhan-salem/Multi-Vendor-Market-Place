@@ -17,6 +17,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Autowired
     private EncryptionService encryptionService;
+    @Autowired
     private JWTService jwtService;
     @Override
     public String login(LoginBody loginBody) {

@@ -14,4 +14,12 @@ public class SellerRegistrationBody extends AppUserRegistrationBody{
     @NotNull
     private String neighborhood;
 
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
+    }
+
 }

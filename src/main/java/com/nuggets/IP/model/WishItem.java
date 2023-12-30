@@ -13,8 +13,6 @@ import java.util.List;
 @ToString
 @Entity
 public class WishItem extends Product {
-    @Column(name = "remainder", nullable = false)
-    private Integer remainder;
 
     @Column(name = "discount_offer")
     private Double discountOffer;

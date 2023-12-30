@@ -31,6 +31,9 @@ public class Product {
     @Column(name = "status", nullable = false)
     private String status;
 
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
+
     @ToString.Exclude
     @ManyToMany
     @JoinTable(name = "product_carts",
