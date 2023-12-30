@@ -1,0 +1,31 @@
+.home-header-right {
+	flex-grow: 1;
+}
+
+.home-header-right ol {
+	list-style: none;
+	counter-reset: my-counter;
+}
+
+.home-header-right ol li {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	counter-increment: my-counter;
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+
+.home-header-right ol li::before {
+	content: counter(my-counter);
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background-color: #ff1f00;
+	color: #fff;
+	border-radius: 50%;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}

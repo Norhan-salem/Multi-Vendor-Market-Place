@@ -1,0 +1,5 @@
+.home-header-items {
+	display: flex;
+	margin: 2rem 0;
+	justify-content: space-evenly;
+}
