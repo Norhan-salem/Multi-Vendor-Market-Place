@@ -1,2 +1,4 @@
-package com.nuggets.IP.service;public interface StatisticWidgetsService {
+package com.nuggets.IP.service;
+
+public interface StatisticWidgetsService {
 }
