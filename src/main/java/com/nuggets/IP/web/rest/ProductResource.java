@@ -1,5 +1,6 @@
 package com.nuggets.IP.web.rest;
 
+import com.nuggets.IP.exception.ProductNotExistException;
 import com.nuggets.IP.model.Product;
 import com.nuggets.IP.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class ProductResource {
     }
 
     @GetMapping
-    public List<Product> getAllProducts() {
+    public List<Product> getAllProducts() throws ProductNotExistException {
         return productService.getAllProducts();
     }
 }

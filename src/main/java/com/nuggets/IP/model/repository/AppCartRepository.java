@@ -20,4 +20,5 @@ public interface AppCartRepository extends JpaRepository<Cart, Long> {
 //    void removeItemFromCart(Cart cartID) throws EmptyCartException;
 Optional<Cart> findByCartId(Long cartId);
 
+    long deleteByCartId(Long cartId);
 }

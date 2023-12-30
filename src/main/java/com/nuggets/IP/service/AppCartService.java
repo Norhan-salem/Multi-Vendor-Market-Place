@@ -9,13 +9,13 @@ import com.nuggets.IP.web.rest.request.CartBody;
 import java.util.List;
 
 public interface AppCartService {
-    void addItemToCart(CartBody cartBody);
+    void addItemToCart(Cart cart , Product product);
 //    void removeItemFromCart(CartBody cartBody) throws EmptyCartException;
 
-    void removeItemFromCart(Cart cartID)  throws EmptyCartException;
+    void removeItemFromCart(Cart cart,Product product)  throws EmptyCartException;
 
-    void updateCartItemQuantity(CartBody cartBody);
-    List<Cart> getCartContents(CartBody cartBody);
+//    void updateCartItemQuantity(CartBody cartBody);
+    List<Product> getCartContents(CartBody cartBody);
     void clearCart(CartBody cartBody);
 
     Double calculateCartTotal(CartBody cartBody);
