@@ -20,13 +20,13 @@ const Login = () => {
 
             // Actual login
                try {
-                    const response = await axios.post('/auth/login', {
+                    const response = await axios.post('http://localhost:8080/auth/login', {
                         username: username,
                         password: password
                     });
 
                     Cookies.set('authenticationToken', response.data.token);
-                    var username = document.getElementById("username").value;
+                    var parsedUsername = document.getElementById("username").value;
                 
                     // Create user data object
                     var user = {
@@ -75,7 +75,7 @@ const Login = () => {
                             <p>Keep me logged in</p>
                         </div>
 
-                        <input type="submit" className="CreatAccountMainButton">Log in</input>
+                        <input type="submit" value={"Log in"} className="CreatAccountMainButton"></input>
 
                         <div className="login_signup_alternative">
                             <hr/>

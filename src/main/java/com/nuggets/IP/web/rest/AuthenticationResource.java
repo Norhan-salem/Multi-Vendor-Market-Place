@@ -63,4 +63,12 @@ public class AuthenticationResource {
         responseMap.put("result", jwtToken);
         return new ResponseEntity<>(responseMap, HttpStatus.OK);
     }
+
+//    @DeleteMapping("/delete/{id}")
+//    public @ResponseBody ResponseEntity<Map<String,Object>> deleteUser(@PathVariable("id") Long id) {
+//        appUserService.deleteAppUser(id);
+//        Map<String,Object> responseMap = new HashMap<>();
+//        responseMap.put("result", "User deleted successfully");
+//        return new ResponseEntity<>(responseMap, HttpStatus.OK);
+//    }
 }

@@ -8,8 +8,11 @@ import {
 import Login from "./Pages/Login_Signup/Login";
 import Signup from "./Pages/Login_Signup/Signup";
 import Seller_Signup from "./Pages/Login_Signup/Seller_Signup";
-import Search from "./Pages/Search/Search";
-import NoPage from "./Pages/NoPage/NoPage";
+import Search from './Pages/Search/Search';
+import NoPage from './Pages/NoPage/NoPage';
+import TermsAndConditions from './Pages/TermsAndConditions/TermsAndConditions';
+import WishList from './Pages/Wish List/WishList';
+import Cart from './Pages/Cart/Cart';
 import TermsAndConditions from "./Pages/TermsAndConditions/TermsAndConditions";
 import HomePage from "./Pages/HomePage/HomePage";
 import ProductPage from "./Pages/ProductPage/ProductPage";

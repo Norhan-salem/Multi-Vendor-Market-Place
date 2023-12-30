@@ -1,0 +1,48 @@
+.Big{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 1250px;
+    height: 730px;
+    margin-left: 108px;
+}
+
+.Fchild{
+    width: 288px;
+    height: 300px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.Small{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    width: 960px;
+    height: 720px;
+}
+
+.m{
+    float: right;
+    margin-right: 104px;
+    margin-top: 195px;
+    width: 212px;
+    height: 48px;
+    text-align: center;
+    line-height: 48px;
+    vertical-align: middle;
+    color: #ff1f00;
+    font-size: 24px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 2px solid #ff1f00;
+    background-color: white;
+}
+
+.m:hover{
+    background-color: #ff1f00;
+    color: white;
+    transition: .3s;
+}

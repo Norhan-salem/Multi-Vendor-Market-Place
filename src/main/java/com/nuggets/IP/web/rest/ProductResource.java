@@ -1,6 +1,9 @@
 package com.nuggets.IP.web.rest;
 
+import com.nuggets.IP.exception.ProductDoesNotExistException;
+import com.nuggets.IP.exception.ReviewDoesNotExistException;
 import com.nuggets.IP.model.Product;
+import com.nuggets.IP.model.Review;
 import com.nuggets.IP.service.ProductService;
 import com.nuggets.IP.web.rest.request.ProductBody;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,21 +27,37 @@ public class ProductResource {
     }
 
     @GetMapping
-    public List<Product> getAllProducts() {
-        return productService.getAllProducts();
+    public @ResponseBody ResponseEntity<Map<String,Object>> getAllProducts() {
+        try {
+            List<Product> products = productService.getAllProducts();
+            Map<String, Object> responseMap = new HashMap<>();
+            responseMap.put("result", products);
+            return new ResponseEntity<>(responseMap, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public @ResponseBody ResponseEntity<Map<String, Object>> createProduct(@RequestBody ProductBody productBody) {
         try {
             Product product = productService.createProduct(productBody);
             Map<String, Object> responseMap = new HashMap<>();
             responseMap.put("result", product);
-//            responseMap.put("result", "Product created successfully");
             return new ResponseEntity<>(responseMap, HttpStatus.OK);
-//            return ResponseEntity.ok(responseMap);
         } catch (Exception e) {
             e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+    @GetMapping("/{userId}")
+    public @ResponseBody ResponseEntity<Map<String,Object>> getAllProductsByUserId(@PathVariable("userId") Long userId) {
+        try {
+            List<Product> products = productService.getProductsBySeller(userId);
+            Map<String, Object> responseMap = new HashMap<>();
+            responseMap.put("result", products);
+            return new ResponseEntity<>(responseMap, HttpStatus.OK);
+        } catch (ProductDoesNotExistException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
