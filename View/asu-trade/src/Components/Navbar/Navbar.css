@@ -5,21 +5,20 @@
     box-shadow: 0 1px 3px -2px black;
     padding: 20px;
 }
-
+.logo{
+    height: 55px;
+    width: 150px;
+    margin-right: 270px;
+}
 .SearchButton{
     background-color: white;
     border: none;
-    margin-left: 190px;
+    margin-left: 350px;
     margin-right: 10px;
+
 }
 
-.CartButton{
-    background-color: white;
-    border: none;
-    margin-right: 10px;
-}
-
-#ProfileNavIcon:hover, #SearchNavIcon:hover, #CartNavIcon:hover{
+#ProfileNavIcon:hover, #SearchNavIcon:hover{
     cursor: pointer;
     color: #ff1f00;
 }
@@ -31,25 +30,6 @@
     display: flex;
     justify-content: center;
     position: relative;
-}
-
-#SellButton{
-    background-color: #ff1f00;
-    color: white;
-    font-family:  Arial, Helvetica, sans-serif;
-    border: none;
-    height: 35px;
-    width: 90px;
-    border-radius: 30px;
-    font-size: 20px;
-    font-weight: 400;
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-#SellButton:hover{
-    background: #eb1d02;
-    cursor: pointer;
 }
 
 .NavLinks{
@@ -111,6 +91,11 @@
     display: flex;
     align-items: center;
     font-weight: 100px;
+}
+
+.SubNav p{
+    font-size: 12px;
+    color: #cbcbcb;
 }
 
 .SubNavIcon{

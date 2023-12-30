@@ -8,6 +8,7 @@ import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import TermsAndConditions from '../TermsAndConditions/TermsAndConditions';
 import Login from '../Login_Signup/Login';
 import Navbar from '../../Components/Navbar/Navbar';
+import { handleSignup } from "./HandleSignup";
 
 const Seller_Signup = () => {
 
@@ -22,6 +23,7 @@ const Seller_Signup = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isPassword1Visible, setIsPassword1Visible] = useState(false);
     const [isPassword2Visible, setIsPassword2Visible] = useState(false);
+    const userType = 'seller';
 
     return (
         <>
@@ -30,7 +32,7 @@ const Seller_Signup = () => {
             <div className="seller_signup_container">
                 <div>
                     <h1>Create a seller account</h1>
-                    <form>
+                    <form onSubmit={(event) => handleSignup(event, firstname, lastname, phonenumber, password, confirmPassword, username, email)}>
                         <div className="login_signup_fields">
                             <div className="input-container">
                                 <FontAwesomeIcon icon={faUser} className="input-icon"/>

@@ -19,7 +19,7 @@ const Login = () => {
 
             // Actual login
                try {
-                    const response = await axios.post('/endpoint', {
+                    const response = await axios.post('/Login', {
                         username: username,
                         password: password
                     });
