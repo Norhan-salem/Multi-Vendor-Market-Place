@@ -5,9 +5,8 @@ import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faUser, faEnvelope, faKey, faEye, faEyeSlash, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons'
-import TermsAndConditions from '../TermsAndConditions/TermsAndConditions';
-import Login from '../Login_Signup/Login';
 import Navbar from '../../Components/Navbar/Navbar';
+import { handleSignup } from "./HandleSignup";
 
 
 const Signup = () => {
@@ -21,72 +20,9 @@ const Signup = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isPassword1Visible, setIsPassword1Visible] = useState(false);
     const [isPassword2Visible, setIsPassword2Visible] = useState(false);
-
-    const handleSignup = async (event) => {
-        event.preventDefault();
-
-        // Check if both names are greater than 3 characters
-        if (firstname.length <= 3 || lastname.length <= 3) {
-            alert('Both first name and last name must be atleast 3 characters.');
-            return;
-        }
-
-        // Check if phone number is in the right format
-        var phonenumberRegex = /^\+20\d{10}$/;
-        if (!phonenumberRegex.test(phonenumber)) {
-            alert('Phone number must start with +20 and contain 10 digits');
-            return;
-        }
-
-        // Password validation function
-        // Check if password is at least 8 characters long
-        if (password.length < 8) {
-            alert('Password must be at least 8 characters long.');
-            return;
-        }
-
-        // Check if password includes at least one number
-        var numberRegex = /\d/;
-        if (!numberRegex.test(password)) {
-            alert('Password must include at least one number.');
-            return;
-        }
-
-        // Check if password includes at least one capital letter
-        var uppercaseRegex = /[A-Z]/;
-        if (!uppercaseRegex.test(password)) {
-            alert('Password must include at least one capital letter.');
-            return;
-        }
-
-        // Check if password includes at least one special character
-        var specialCharacterRegex = /[!@#$%^&*]/;
-        if (!specialCharacterRegex.test(password)) {
-            alert('Password must include at least one special character.');
-            return;
-        }
-
-        // Password = confirmation password
-        if (password !== confirmPassword) {
-            alert('Passwords do not match.');
-            return;
-        }
-
-        // Actual signup
-        try {
-            const response = await axios.post('/endpoint', {
-                username: username,
-                password: password,
-                email: email,
-                firstname: firstname,
-                lastname: lastname,
-                phonenumber: phonenumber
-            });
-            console.log(response);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    const location = null;
+    const neighborhood = null;
+    const userType='customer';
 
     return (
         <>
@@ -99,7 +35,7 @@ const Signup = () => {
                 </div>
                 <div>
                     <h1>Create your account</h1>
-                    <form onSubmit={handleSignup}>
+                    <form onSubmit={(event) => {handleSignup(event, firstname, lastname, phonenumber, password, confirmPassword, username, email)}}>
                         <div className="login_signup_fields">
                             <div className="input-container">
                                 <FontAwesomeIcon icon={faUser} className="input-icon"/>
@@ -135,10 +71,10 @@ const Signup = () => {
 
                         <div className="login_signup_CB">
                             <input type="checkbox" name="checkbox-agreetoterms" id="login_signup_checkbox" required/>
-                            <p>I agree to all <Link to={TermsAndConditions}>Terms & Conditions</Link></p>
+                            <p>I agree to all <Link to='/TermsAndConditions'>Terms & Conditions</Link></p>
                         </div>
 
-                        <NavLink className="submit-form"><button type="submit" className="CreatAccountMainButton">Create Account</button></NavLink>
+                        <input type="submit" value={"Create Account"} className="CreatAccountMainButton"/>
 
                         <div className="login_signup_alternative">
                             <hr/>
@@ -154,7 +90,7 @@ const Signup = () => {
                                 <FontAwesomeIcon icon={faFacebook}/><span>Facebook</span>
                             </Link>
                         </div>
-                        <p className="login_signup_login">Already have an account? <Link to={Login}>Log in here</Link></p>
+                        <p className="login_signup_login">Already have an account? <Link to='/Login'>Log in here</Link></p>
                     </form>
                 </div>
             </div>

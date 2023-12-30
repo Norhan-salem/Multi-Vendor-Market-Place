@@ -7,6 +7,7 @@ import {faEnvelope, faKey, faEye, faEyeSlash } from '@fortawesome/free-solid-svg
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
+import Cookies from 'js-cookie';
 
 const Login = () => {
 
@@ -19,11 +20,23 @@ const Login = () => {
 
             // Actual login
                try {
-                    const response = await axios.post('/endpoint', {
+                    const response = await axios.post('http://localhost:8080/auth/login', {
                         username: username,
                         password: password
                     });
+
+                    Cookies.set('authenticationToken', response.data.token);
+                    var parsedUsername = document.getElementById("username").value;
+                
+                    // Create user data object
+                    var user = {
+                        username: username
+                    };
+        
+                    // Save data to cookie
+                    document.cookie = "userInfo=" + JSON.stringify(user);
                     console.log(response);
+                    
                 } catch (error) {
                     console.log(error);
                 }
@@ -44,7 +57,7 @@ const Login = () => {
                             <div className="login_signup_fields">
                                 <div className="input-container">
                                     <FontAwesomeIcon icon={faEnvelope} className="input-icon"/>
-                                    <input type="email" placeholder="E-mail Address" value={username} onChange={e => setUsername(e.target.value)} required></input>
+                                    <input type="text" placeholder="Username" id="username" value={username} onChange={e => setUsername(e.target.value)} required></input>
                                 </div>
                                 <div className="input-container">
                                     <FontAwesomeIcon icon={faKey} className="input-icon"/>
@@ -62,7 +75,7 @@ const Login = () => {
                             <p>Keep me logged in</p>
                         </div>
 
-                        <NavLink className="submit-form"><button type="submit" className="CreatAccountMainButton">Log in</button></NavLink>
+                        <input type="submit" value={"Log in"} className="CreatAccountMainButton"></input>
 
                         <div className="login_signup_alternative">
                             <hr/>
