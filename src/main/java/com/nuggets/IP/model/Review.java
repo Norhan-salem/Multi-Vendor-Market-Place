@@ -24,15 +24,15 @@ public class Review {
 
     @ToString.Exclude
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private AppUser appUser;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_review_id")
+    @JoinColumn(name = "product_review_id", nullable = false)
     private Product productReview;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "seller_review_id")
+    @JoinColumn(name = "seller_review_id", nullable = false)
     private Seller seller;
 
 }

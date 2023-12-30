@@ -1,33 +1,31 @@
 package com.nuggets.IP.service.impl;
 
-import com.nuggets.IP.exception.AppUserAlreadyExistsException;
 import com.nuggets.IP.exception.SellerAlreadyExistsException;
-import com.nuggets.IP.model.AppUser;
 import com.nuggets.IP.model.Seller;
-import com.nuggets.IP.model.repository.AppUserRepository;
+import com.nuggets.IP.model.repository.SellerRepository;
 import com.nuggets.IP.service.EncryptionService;
-import com.nuggets.IP.service.JWTService;
 import com.nuggets.IP.service.SellerService;
 import com.nuggets.IP.web.rest.request.SellerRegistrationBody;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SellerServiceImpl implements SellerService {
 
-    private final AppUserRepository appUserRepository;
-
+    @Autowired
+    private final SellerRepository sellerRepository;
+    @Autowired
     private final EncryptionService encryptionService;
 
-    private JWTService jwtService;
-    public SellerServiceImpl(AppUserRepository appUserRepository, EncryptionServiceImpl encryptionService) {
-        this.appUserRepository = appUserRepository;
+    public SellerServiceImpl(SellerRepository sellerRepository, EncryptionService encryptionService) {
+        this.sellerRepository = sellerRepository;
         this.encryptionService = encryptionService;
     }
 
     @Override
     public Seller register(SellerRegistrationBody registrationBody) throws SellerAlreadyExistsException {
-        if (appUserRepository.findByUsernameIgnoreCase(registrationBody.getUsername()).isPresent() ||
-                appUserRepository.findByEmailIgnoreCase(registrationBody.getEmail()).isPresent()) {
+        if (sellerRepository.findByUsernameIgnoreCase(registrationBody.getUsername()).isPresent() ||
+                sellerRepository.findByEmailIgnoreCase(registrationBody.getEmail()).isPresent()) {
             throw new SellerAlreadyExistsException("User already exists");
         }
         Seller seller = new Seller();
@@ -40,6 +38,7 @@ public class SellerServiceImpl implements SellerService {
         seller.setLocation(registrationBody.getLocation());
         seller.setNeighborhood(registrationBody.getNeighborhood());
 
-        return appUserRepository.save(seller);
+        return sellerRepository.save(seller);
     }
+
 }
