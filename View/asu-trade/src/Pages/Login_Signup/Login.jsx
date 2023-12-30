@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import '../Login_Signup/Login_Signup.css'
 import axios from 'axios';
 import { NavLink, Link } from "react-router-dom";
@@ -6,10 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faEnvelope, faKey, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import Navbar from '../../Components/Navbar/Navbar';
-
+import Footer from '../../Components/Footer/Footer';
 
 const Login = () => {
-    
+
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -17,30 +17,9 @@ const Login = () => {
     const handleLogin = async (event) => {
         event.preventDefault();
 
-        // Mock login
-        /*
-        const mockLogin = async ({ username, password }) => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    if (username === 'norhan@gmail.com' && password === 'Norhan123!') {
-                        resolve({ data: { success: true, message: 'Login successful!' } });
-                    } else {
-                        reject({ error: 'Invalid username or password' });
-                    }
-                }, 1000);
-            });
-        };
-
-        try {
-            const response = await mockLogin({ username, password });
-            console.log(response);
-        } catch (error) {
-            console.log(error);
-        }*/
-
             // Actual login
                try {
-                    const response = await axios.post('/login', {
+                    const response = await axios.post('/endpoint', {
                         username: username,
                         password: password
                     });
@@ -102,6 +81,7 @@ const Login = () => {
                     </form>
             </div>
         </div>
+        <Footer/>
     </>
     )
 

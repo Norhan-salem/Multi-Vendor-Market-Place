@@ -16,7 +16,7 @@
 
 .login_signup_container{
     width: 450px;
-    height: 640px;
+    height: 800px;
     background: white;
     margin: auto;
     padding: 40px 60px;
@@ -35,13 +35,13 @@
 .LoginContainer h1{
     font-size: 30px;
     text-align: center;
-    font-family:  sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     font-weight: 500;
 }
 
 .login_signup_container h1{
     font-size: 30px;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     font-weight: 500;
 }
@@ -62,7 +62,7 @@
     font-size: 20px;
     cursor: pointer;
     font-weight: 500;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     text-align: center;
 }
@@ -85,7 +85,7 @@
     font-size: 24px;
     cursor: pointer;
     font-weight: 500;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .LoginButtonLP, .SignupButtonSP{
@@ -98,7 +98,7 @@
     font-size: 24px;
     cursor: pointer;
     font-weight: 500;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     
 }
 
@@ -131,7 +131,7 @@
     font-size: 18px;
     border-radius: 7px;
     text-indent: 10px;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .eye-icon {
@@ -171,13 +171,13 @@
     font-size: 18px;
     font-weight: 400;
     text-align: center;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .login_signup_login a{
     text-decoration: none;
     color: #ff1f00;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .login_signup_CB{
@@ -188,7 +188,7 @@
     color: #cbcbcb;
     font-size: 18px;
     font-weight: 400;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .FP a{
@@ -197,7 +197,7 @@
     font-weight: 400;
     margin-top: 5px;
     margin-left: 300px;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
 }
 
@@ -207,17 +207,17 @@
     color: #cbcbcb;
     font-size: 18px;
     font-weight: 400;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .login_signup_CB a{
     color: #ff1f00;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .login_signup_alternative {
     display: flex;
     align-items: center;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .login_signup_alternative hr {
@@ -248,7 +248,7 @@
     font-size: 16px;
     color: #ff1f00;
     margin-right: 25px;
-    font-family:  sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     text-align: center;
 }
@@ -264,6 +264,35 @@
 
 .social_icon span{
     margin-left: 5px;
+}
+
+.seller_signup_container{
+    width: 450px;
+    height: 800px;
+    background: white;
+    margin: auto;
+    padding: 30px 60px;
+    border-radius: 7px;
+}
+
+.seller_signup_container h1{
+    font-weight: 400;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.select-container {
+    display: flex;
+    align-items: center;
+    padding:10px;
+}
+
+.select {
+    appearance: none;
+    border: 2px solid #cbcbcb;
+    padding: 5px;
+    border-radius: 7px;
+    background: #fff;
 }
 
 

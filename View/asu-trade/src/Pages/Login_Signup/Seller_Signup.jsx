@@ -3,103 +3,34 @@ import axios from "axios";
 import '../Login_Signup/Login_Signup.css'
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faUser, faEnvelope, faKey, faEye, faEyeSlash, faPhone } from '@fortawesome/free-solid-svg-icons'
+import {faUser, faEnvelope, faKey, faEye, faEyeSlash, faPhone, faLocationDot, faHome } from '@fortawesome/free-solid-svg-icons'
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import TermsAndConditions from '../TermsAndConditions/TermsAndConditions';
 import Login from '../Login_Signup/Login';
 import Navbar from '../../Components/Navbar/Navbar';
 
-
-const Signup = () => {
+const Seller_Signup = () => {
 
     const [username, setUsername] = useState('');
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
+    const [location, setLocation] = useState('');
+    const [neighborhood, setNeighborhood] = useState('');
     const [phonenumber, setPhonenumber] = useState();
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isPassword1Visible, setIsPassword1Visible] = useState(false);
     const [isPassword2Visible, setIsPassword2Visible] = useState(false);
 
-    const handleSignup = async (event) => {
-        event.preventDefault();
-
-        // Check if both names are greater than 3 characters
-        if (firstname.length <= 3 || lastname.length <= 3) {
-            alert('Both first name and last name must be atleast 3 characters.');
-            return;
-        }
-
-        // Check if phone number is in the right format
-        var phonenumberRegex = /^\+20\d{10}$/;
-        if (!phonenumberRegex.test(phonenumber)) {
-            alert('Phone number must start with +20 and contain 10 digits');
-            return;
-        }
-
-        // Password validation function
-        // Check if password is at least 8 characters long
-        if (password.length < 8) {
-            alert('Password must be at least 8 characters long.');
-            return;
-        }
-
-        // Check if password includes at least one number
-        var numberRegex = /\d/;
-        if (!numberRegex.test(password)) {
-            alert('Password must include at least one number.');
-            return;
-        }
-
-        // Check if password includes at least one capital letter
-        var uppercaseRegex = /[A-Z]/;
-        if (!uppercaseRegex.test(password)) {
-            alert('Password must include at least one capital letter.');
-            return;
-        }
-
-        // Check if password includes at least one special character
-        var specialCharacterRegex = /[!@#$%^&*]/;
-        if (!specialCharacterRegex.test(password)) {
-            alert('Password must include at least one special character.');
-            return;
-        }
-
-        // Password = confirmation password
-        if (password !== confirmPassword) {
-            alert('Passwords do not match.');
-            return;
-        }
-
-        // Actual signup
-        try {
-            const response = await axios.post('/endpoint', {
-                username: username,
-                password: password,
-                email: email,
-                firstname: firstname,
-                lastname: lastname,
-                phonenumber: phonenumber
-            });
-            console.log(response);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
     return (
         <>
         <Navbar/>
         <div className="login_signup">
-            <div className="login_signup_container">
-                <div className="button_container">
-                    <NavLink to="/Login" className="LoginButtonSP">Log in</NavLink>
-                    <NavLink to="/Signup" className="SignupButtonSP">Create Account</NavLink>
-                </div>
+            <div className="seller_signup_container">
                 <div>
-                    <h1>Create your account</h1>
-                    <form onSubmit={handleSignup}>
+                    <h1>Create a seller account</h1>
+                    <form>
                         <div className="login_signup_fields">
                             <div className="input-container">
                                 <FontAwesomeIcon icon={faUser} className="input-icon"/>
@@ -122,6 +53,23 @@ const Signup = () => {
                                 <input type="tel" placeholder="Enter Phone Number" value={phonenumber} onChange={e => setPhonenumber(e.target.value)} required/>
                             </div>
                             <div className="input-container">
+                                <FontAwesomeIcon icon={faLocationDot} className="input-icon"/>
+                                <input type="text" placeholder="Enter Location" value={location} onChange={e => setLocation(e.target.value)} required/>
+                            </div>
+                            <div className="select-container">
+                                <FontAwesomeIcon icon={faHome} className="input-icon"/>
+                                <select className="select" value={neighborhood} onChange={e => setNeighborhood(e.target.value)} required>
+                                    <option value="">Enter Neighborhood</option>
+                                    <option value="New Cairo">New Cairo</option>
+                                    <option value="Old Cairo">Old Cairo</option>
+                                    <option value="Heliopolis">Heliopolis</option>
+                                    <option value="Madinaty">Madinaty</option>
+                                    <option value="Madinet Nasr">Madinet Nasr</option>
+                                    <option value="El-Asema El-Edariya">El-Asema El-Edariya</option>
+                                    <option value="Masr El-Gedida">Masr El-Gedida</option>
+                                </select>
+                            </div>
+                            <div className="input-container">
                                 <FontAwesomeIcon icon={faKey} className="input-icon"/>
                                 <input type={isPassword1Visible ? "text" : "password"} placeholder="Enter Your Password" value={password} onChange={e => setPassword(e.target.value)} required></input>
                                 <FontAwesomeIcon icon={isPassword1Visible ? faEye : faEyeSlash} className="eye-icon" onClick={() => setIsPassword1Visible(!isPassword1Visible)}/>
@@ -138,7 +86,7 @@ const Signup = () => {
                             <p>I agree to all <Link to={TermsAndConditions}>Terms & Conditions</Link></p>
                         </div>
 
-                        <NavLink className="submit-form"><button type="submit" className="CreatAccountMainButton">Create Account</button></NavLink>
+                        <Link to={Login} className="submit-form"><button type="submit" className="CreatAccountMainButton">Create Account</button></Link>
 
                         <div className="login_signup_alternative">
                             <hr/>
@@ -163,4 +111,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default Seller_Signup;
