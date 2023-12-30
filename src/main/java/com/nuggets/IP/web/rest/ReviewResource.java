@@ -77,6 +77,14 @@ public class ReviewResource {
         }
     }
 
+    @DeleteMapping("/{reviewId}")
+    public @ResponseBody ResponseEntity<Map<String,Object>> deleteReview(@PathVariable("reviewId") Long reviewId) {
+        Map<String,Object> responseMap = new HashMap<>();
+        reviewService.deleteReview(reviewId);
+        responseMap.put("result", "Review deleted successfully");
+        return new ResponseEntity<>(responseMap, HttpStatus.OK);
+    }
+
     @PostMapping
     public @ResponseBody ResponseEntity<Map<String,Object>> createReview(@RequestBody ReviewBody reviewBody) {
         Map<String,Object> responseMap = new HashMap<>();

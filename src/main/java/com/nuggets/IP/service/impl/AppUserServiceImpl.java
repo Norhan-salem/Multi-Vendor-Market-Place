@@ -42,4 +42,9 @@ public class AppUserServiceImpl implements AppUserService {
         return appUserRepository.save(appUser);
     }
 
+    @Override
+    public void deleteAppUser(Long appUserId) {
+        appUserRepository.deleteById(appUserId);
+    }
+
 }

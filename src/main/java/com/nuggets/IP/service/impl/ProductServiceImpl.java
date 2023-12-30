@@ -1,5 +1,7 @@
 package com.nuggets.IP.service.impl;
 
+import com.nuggets.IP.exception.ProductDoesNotExistException;
+import com.nuggets.IP.exception.ReviewDoesNotExistException;
 import com.nuggets.IP.model.Product;
 import com.nuggets.IP.model.repository.ProductRepository;
 import com.nuggets.IP.model.repository.SellerRepository;
@@ -36,5 +38,10 @@ public class ProductServiceImpl implements ProductService {
         product.setStatus("Available");
         product.setSeller(sellerRepository.findByUsernameIgnoreCase(productBody.getSellerUsername()).orElse(null));
         return productRepository.save(product);
+    }
+
+    @Override
+    public List<Product> getProductsBySeller(Long sellerId)  throws ProductDoesNotExistException {
+        return productRepository.findBySeller_UserID(sellerId).orElseThrow(() -> new ProductDoesNotExistException("Product does not exist"));
     }
 }
