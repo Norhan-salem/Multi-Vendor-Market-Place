@@ -1,9 +1,12 @@
 package com.nuggets.IP.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +19,18 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id", nullable = false)
-    private Long userId;
+    private Long userID;
+
+    @Email
+    @Column(name = "email", nullable = false, unique = true, length = 320)
+    private String email;
+
+    @Column(name = "username", nullable = false, unique = true)
+    private String username;
+
+    @JsonIgnore
+    @Column(name = "password", nullable = false, length = 1000)
+    private String password;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -24,31 +38,21 @@ public class AppUser {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "user_name", nullable = false)
-    private String userName;
 
-    @Column(name = "email", nullable = false, unique = true, length = 320)
-    private String email;
 
-    @Column(name = "password", nullable = false, unique = true, length = 1000)
-    private String password;
+    @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews = new ArrayList<>();
 
-    @Column(name = "cart_id", nullable = false, unique = true)
-    private Long cartId;
+    @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AppOrder> placedOrders = new ArrayList<>();
 
-    @Column(name = "total_price", nullable = false)
-    private Double totalPrice;
+    @OneToOne(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Cart cart;
 
-    @Column(name = "creation_date", nullable = false)
-    private LocalDate creationDate;
+    @ManyToMany(mappedBy = "appUsers")
+    private List<WishItem> wishItems = new ArrayList<>();
 
-    @Column(name = "last_updated_date", nullable = false)
-    private LocalDate lastUpdatedDate;
-
-    @Column(name = "coupon_code")
-    private String couponCode;
-
-    @Column(name = "number_of_items", nullable = false)
-    private Integer numberOfItems;
+    @Column(name = "phone_number", nullable = false, unique = true, length = 20)
+    private String phoneNumber;
 
 }

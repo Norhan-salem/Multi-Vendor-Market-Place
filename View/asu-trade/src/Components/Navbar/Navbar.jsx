@@ -12,6 +12,7 @@ import {
 	faBagShopping,
 	faCircleDollarToSlot,
 	faArrowRightFromBracket,
+	faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
@@ -20,7 +21,7 @@ const Navbar = () => {
 	return (
 		<div className="Navbar">
 			<nav className="NavLinks">
-				<NavLink to="/Home">Home</NavLink>
+				<NavLink to="/Signup">Home</NavLink>
 				<NavLink to="/Signup" className="Products">
 					Products
 					<nav className="SubNav">
@@ -64,7 +65,7 @@ const Navbar = () => {
 				<NavLink>FAQ</NavLink>
 				<NavLink>About</NavLink>
 			</nav>
-			<NavLink to="/Signup">
+			<NavLink to="/Seller_Signup">
 				<button id="SellButton">Sell</button>
 			</NavLink>
 			<div className="NavSearch">
@@ -74,7 +75,16 @@ const Navbar = () => {
 					</button>
 				</NavLink>
 			</div>
-
+			<div className="NavSearch">
+				<NavLink to="/Cart">
+					<button className="CartButton">
+						<FontAwesomeIcon
+							icon={faCartShopping}
+							id="CartNavIcon"
+						/>
+					</button>
+				</NavLink>
+			</div>
 			<nav className="NavLinks">
 				<NavLink to="/Signup" className="Profile">
 					<FontAwesomeIcon icon={faUser} id="ProfileNavIcon" />
@@ -84,7 +94,7 @@ const Navbar = () => {
 								icon={faUser}
 								className="SubNavIcon"
 							/>
-							name
+							username
 						</NavLink>
 						<p>email</p>
 						<NavLink to="/Signup">
