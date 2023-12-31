@@ -55,12 +55,24 @@ public class ProductResource {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping("/{userId}")
-    public @ResponseBody ResponseEntity<Map<String,Object>> getAllProductsByUserId(@PathVariable("userId") Long userId) {
+    @GetMapping
+    public @ResponseBody ResponseEntity<Map<String,Object>> getAllProductsByUserId(@RequestParam("userId") Long userId) {
         try {
             List<Product> products = productService.getProductsBySeller(userId);
             Map<String, Object> responseMap = new HashMap<>();
             responseMap.put("result", products);
+            return new ResponseEntity<>(responseMap, HttpStatus.OK);
+        } catch (ProductDoesNotExistException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping
+    public @ResponseBody ResponseEntity<Map<String,Object>> getProductById(@RequestParam("productId") Long productId){
+        try {
+            Product product = productService.getProductById(productId).orElseThrow(() -> new ProductDoesNotExistException("Product does not exist"));
+            Map<String, Object> responseMap = new HashMap<>();
+            responseMap.put("result", product);
             return new ResponseEntity<>(responseMap, HttpStatus.OK);
         } catch (ProductDoesNotExistException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
