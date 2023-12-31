@@ -19,7 +19,7 @@ function CardItem() {
 				<button className="trash">
 					<FontAwesomeIcon icon={faTrashCan} />
 				</button>
-			</div>
+		</div>
 		</div>
 	);
 }

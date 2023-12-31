@@ -1,0 +1,12 @@
+.ViewAll-page{
+    padding: 6rem 9rem;
+}
+
+#clearfilter-button{
+    color: #ff1f00;
+    background-color: white;
+    border: none;
+    margin-left: 90px;
+    cursor: pointer;
+    font-size: 14px;
+}

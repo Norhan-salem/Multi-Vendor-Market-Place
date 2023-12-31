@@ -18,6 +18,7 @@ import UserData from "./Pages/User Data/UserData";
 import Listings from "./Pages/Listings/Listings";
 import HomePage from "./Pages/HomePage/HomePage";
 import ProductPage from "./Pages/ProductPage/ProductPage";
+import ViewAll from './Pages/ViewAll/ViewAll';
 
 
 const router = createBrowserRouter(
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
 			<Route path="/Cart" element={<Cart />} />
 			<Route path="/Profile" element={<UserData />} />
 			<Route path="/Listings" element={<Listings />} />
+			<Route path="/ViewAll" element={<ViewAll />} />
 			<Route path="/*" element={<NoPage />} />
 		</Route>
 	)
