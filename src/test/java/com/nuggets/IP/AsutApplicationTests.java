@@ -2,18 +2,14 @@ package com.nuggets.IP;
 
 import com.nuggets.IP.exception.SellerAlreadyExistsException;
 import com.nuggets.IP.model.Seller;
-import com.nuggets.IP.model.repository.AppUserRepository;
 import com.nuggets.IP.model.repository.SellerRepository;
 import com.nuggets.IP.service.EncryptionService;
-import com.nuggets.IP.service.SellerService;
-import com.nuggets.IP.service.impl.EncryptionServiceImpl;
 import com.nuggets.IP.service.impl.SellerServiceImpl;
-import com.nuggets.IP.web.rest.request.SellerRegistrationBody;
+import com.nuggets.IP.controller.rest.request.SellerRegistrationBody;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import io.github.cdimascio.dotenv.Dotenv;
 

@@ -1,11 +1,10 @@
-package com.nuggets.IP.web.rest;
+package com.nuggets.IP.controller.rest;
 
+import com.nuggets.IP.controller.rest.request.ProductBody;
 import com.nuggets.IP.exception.ProductDoesNotExistException;
-import com.nuggets.IP.exception.ReviewDoesNotExistException;
 import com.nuggets.IP.model.Product;
-import com.nuggets.IP.model.Review;
+import com.nuggets.IP.service.ImageService;
 import com.nuggets.IP.service.ProductService;
-import com.nuggets.IP.web.rest.request.ProductBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +16,13 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/product")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProductResource {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private ImageService imageService;
 
     public ProductResource(ProductService productService) {
         this.productService = productService;
@@ -39,9 +41,12 @@ public class ProductResource {
     }
 
     @PostMapping
-    public @ResponseBody ResponseEntity<Map<String, Object>> createProduct(@RequestBody ProductBody productBody) {
+    public @ResponseBody ResponseEntity<Map<String, Object>> createProduct(@ModelAttribute ProductBody productBody) {
         try {
             Product product = productService.createProduct(productBody);
+//            product.setImage(imageService.uploadImage(productBody.getImage()));
+//            product = productService.update(product);
+            product.setImage(imageService.uploadImage(productBody.getImage(), product));
             Map<String, Object> responseMap = new HashMap<>();
             responseMap.put("result", product);
             return new ResponseEntity<>(responseMap, HttpStatus.OK);

@@ -6,34 +6,34 @@ import { faKey } from "@fortawesome/free-solid-svg-icons"
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons"
 import { Link } from "react-router-dom"
 
-function ContactInfo(){
+function ContactInfo({user}){
     return(
-        <div className='containerr'>
+        <div className='CIcontainerr'>
             First name
-            <div className='Childd'>
+            <div className='CIChildd'>
                 <FontAwesomeIcon className="iconn" icon={faUser} /> 
-                Jimmy Smith
-                <button className="buy">
-                    <FontAwesomeIcon className="edit" icon={faPenToSquare} />
+                {user["FirstName"]}
+                <button className="CIbuy">
+                    <FontAwesomeIcon className="CIedit" icon={faPenToSquare} />
                 </button>
             </div>
             E-mail Address 
-            <div className="Childd">
+            <div className="CIChildd">
                 <FontAwesomeIcon className="iconn" icon={faEnvelope} /> 
-                JimmySmith@gmail.com
-                <button className="buy">
-                    <FontAwesomeIcon className="edit" icon={faPenToSquare} />
+                {user["EmailAddress"]}
+                <button className="CIbuy">
+                    <FontAwesomeIcon className="CIedit" icon={faPenToSquare} />
                 </button>
             </div>
             Password
-            <div className='Childd'>
+            <div className='CIChildd'>
                 <FontAwesomeIcon className="iconn" icon={faKey} /> 
                 ********
-                <button className="buy">
-                    <FontAwesomeIcon className="edit" icon={faPenToSquare} />
+                <button className="CIbuy">
+                    <FontAwesomeIcon className="CIedit" icon={faPenToSquare} />
                 </button>
             </div><br/>
-            <a className="link">Forget Password?</a>
+            <a className="CIlink">Forget Password?</a>
         </div>
     )
 }

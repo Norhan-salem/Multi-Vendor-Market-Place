@@ -5,7 +5,7 @@ import com.nuggets.IP.model.repository.AppUserRepository;
 import com.nuggets.IP.service.EncryptionService;
 import com.nuggets.IP.service.JWTService;
 import com.nuggets.IP.service.LoginService;
-import com.nuggets.IP.web.rest.request.LoginBody;
+import com.nuggets.IP.controller.rest.request.LoginBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

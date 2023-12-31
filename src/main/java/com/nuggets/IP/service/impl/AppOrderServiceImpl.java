@@ -4,7 +4,7 @@ import com.nuggets.IP.exception.AppOrderDoesNotExistException;
 import com.nuggets.IP.model.AppOrder;
 import com.nuggets.IP.model.repository.AppOrderRepository;
 import com.nuggets.IP.service.AppOrderService;
-import com.nuggets.IP.web.rest.request.OrderBody;
+import com.nuggets.IP.controller.rest.request.OrderBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -9,7 +9,7 @@ import com.nuggets.IP.model.repository.ProductRepository;
 import com.nuggets.IP.model.repository.ReviewRepository;
 import com.nuggets.IP.model.repository.SellerRepository;
 import com.nuggets.IP.service.ReviewService;
-import com.nuggets.IP.web.rest.request.ReviewBody;
+import com.nuggets.IP.controller.rest.request.ReviewBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

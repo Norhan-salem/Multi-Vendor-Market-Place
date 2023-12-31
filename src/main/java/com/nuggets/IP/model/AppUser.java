@@ -41,19 +41,26 @@ public class AppUser {
 
 
 
-    @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Review> reviews = new ArrayList<>();
 
-    @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<AppOrder> placedOrders = new ArrayList<>();
 
-    @OneToOne(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Cart cart;
 
-    @ManyToMany(mappedBy = "appUsers")
-    private List<WishItem> wishItems = new ArrayList<>();
+//    @ManyToMany(mappedBy = "appUsers")
+//    private List<WishItem> wishItems = new ArrayList<>();
+
 
     @Column(name = "phone_number", nullable = false, unique = true, length = 20)
     private String phoneNumber;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.EAGER)
+    @JoinTable(name = "app_user_wish_Items",
+            joinColumns = @JoinColumn(name = "app_User_user_id"),
+            inverseJoinColumns = @JoinColumn(name = "wish_Items_product_id"))
+    private List<WishItem> wishItems = new ArrayList<>();
 
 }

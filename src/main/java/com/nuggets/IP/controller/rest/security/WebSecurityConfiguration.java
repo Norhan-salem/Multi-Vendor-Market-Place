@@ -1,4 +1,4 @@
-package com.nuggets.IP.web.rest.security;
+package com.nuggets.IP.controller.rest.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -25,7 +25,8 @@ public class WebSecurityConfiguration {
     @SuppressWarnings("removal")
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().disable().cors().disable();
+        httpSecurity.cors();
+        httpSecurity.csrf().disable();
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         httpSecurity.authorizeHttpRequests((
                 authz) -> authz

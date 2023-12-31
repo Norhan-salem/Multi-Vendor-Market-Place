@@ -41,6 +41,7 @@ const router = createBrowserRouter(
 			<Route path="/Cart" element={<Cart />} />
 			<Route path="/Profile" element={<UserData />} />
 			<Route path="/Listings" element={<Listings />} />
+			<Route path="/UserData" element={<UserData/>} />
 			<Route path="/*" element={<NoPage />} />
 		</Route>
 	)
