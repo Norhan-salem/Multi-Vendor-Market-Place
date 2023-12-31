@@ -39,8 +39,8 @@ public class ReviewResource {
         }
     }
 
-    @GetMapping("/{productId}")
-    public @ResponseBody ResponseEntity<Map<String,Object>> getProductReviews(@PathVariable("productId") Long productId){
+    @GetMapping
+    public @ResponseBody ResponseEntity<Map<String,Object>> getProductReviews(@RequestParam("productId") Long productId){
         try{
             List<Review> reviews = reviewService.getProductReviews(productId);
             Map<String,Object> responseMap = new HashMap<>();
@@ -52,8 +52,8 @@ public class ReviewResource {
         }
     }
 
-    @GetMapping("/{sellerId}")
-    public @ResponseBody ResponseEntity<Map<String,Object>> getSellerReviews(@PathVariable("sellerId") Long sellerId){
+    @GetMapping
+    public @ResponseBody ResponseEntity<Map<String,Object>> getSellerReviews(@RequestParam("sellerId") Long sellerId){
         try{
             List<Review> reviews = reviewService.getSellerReviews(sellerId);
             Map<String,Object> responseMap = new HashMap<>();
@@ -66,8 +66,8 @@ public class ReviewResource {
 
     }
 
-    @GetMapping("/{appUserId}")
-    public @ResponseBody ResponseEntity<Map<String,Object>> getUserReviews(@PathVariable("appUserId") Long appUserId){
+    @GetMapping
+    public @ResponseBody ResponseEntity<Map<String,Object>> getUserReviews(@RequestParam("appUserId") Long appUserId){
         try{
             List<Review> reviews = reviewService.getReviewsByUser(appUserId);
             Map<String,Object> responseMap = new HashMap<>();
@@ -79,8 +79,8 @@ public class ReviewResource {
         }
     }
 
-    @DeleteMapping("/{reviewId}")
-    public @ResponseBody ResponseEntity<Map<String,Object>> deleteReview(@PathVariable("reviewId") Long reviewId) {
+    @DeleteMapping
+    public @ResponseBody ResponseEntity<Map<String,Object>> deleteReview(@RequestParam("reviewId") Long reviewId) {
         Map<String,Object> responseMap = new HashMap<>();
         reviewService.deleteReview(reviewId);
         responseMap.put("result", "Review deleted successfully");

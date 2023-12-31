@@ -29,13 +29,13 @@ public class ImageResource {
         return ResponseEntity.ok().body(Map.of("image", imageService.uploadImage(file, product.get())));
     }
 
-    @GetMapping("/info/{name}")
-    public ResponseEntity<Map<String, Object>> getInfoOfImageByName(@PathVariable String name) throws IOException, ImageDoesNotExistException {
+    @GetMapping("/info")
+    public ResponseEntity<Map<String, Object>> getInfoOfImageByName(@RequestParam("name") String name) throws IOException, ImageDoesNotExistException {
         return ResponseEntity.ok().body(Map.of("image", imageService.getInfoOfImageByName(name)));
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<Map<String, Object>> getImage(@PathVariable String name) throws IOException, ImageDoesNotExistException {
+    @GetMapping
+    public ResponseEntity<Map<String, Object>> getImage(@RequestParam("name") String name) throws IOException, ImageDoesNotExistException {
         return ResponseEntity.ok().body(Map.of("image", imageService.getImage(name)));
     }
 }
