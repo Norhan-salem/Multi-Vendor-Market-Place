@@ -1,4 +1,4 @@
-package com.nuggets.IP.web.rest.security;
+package com.nuggets.IP.controller.rest.security;
 
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.nuggets.IP.model.AppUser;

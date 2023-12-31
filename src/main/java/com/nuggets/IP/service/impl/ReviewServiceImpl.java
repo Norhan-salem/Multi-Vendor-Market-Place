@@ -9,7 +9,7 @@ import com.nuggets.IP.model.repository.ProductRepository;
 import com.nuggets.IP.model.repository.ReviewRepository;
 import com.nuggets.IP.model.repository.SellerRepository;
 import com.nuggets.IP.service.ReviewService;
-import com.nuggets.IP.web.rest.request.ReviewBody;
+import com.nuggets.IP.controller.rest.request.ReviewBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +46,7 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public Review editReview(ReviewBody reviewBody) {
+//        TODO: test this
         Review review = new Review();
         review.setComment(reviewBody.getComment());
         review.setRating(reviewBody.getRating());
@@ -66,11 +67,13 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public List<Review> getProductReviews(Long productId){
+//        TODO: test this
         return reviewRepository.findByProductReview_ProductId(productId);
     }
 
     @Override
     public List<Review> getSellerReviews(Long sellerId) throws SellerDoesNotExistException {
+//        TODO: test this
         return reviewRepository.findBySeller_ReceivedReviews_Seller(sellerRepository.findById(sellerId).orElseThrow(() -> new SellerDoesNotExistException("Seller does not exist")));
     }
 

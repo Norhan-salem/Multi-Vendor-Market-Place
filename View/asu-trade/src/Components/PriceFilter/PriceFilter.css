@@ -15,7 +15,7 @@
   
   .filter-price input[type='range'] {
     -webkit-appearance: none;
-    width: 17%;
+    width: 90%;
     height: 15px;
     border-radius: 10px;  
     background: #d3d3d3;
@@ -47,5 +47,9 @@
     display: flex;
     gap:20px;
     padding: 10px;
+  }
+
+  .filter-price{
+    float: left;
   }
   

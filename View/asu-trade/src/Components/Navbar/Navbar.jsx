@@ -84,41 +84,46 @@ const Navbar = () => {
 				<NavLink>FAQ</NavLink>
 				<NavLink>About</NavLink>
 			</nav>
-			<div className="NavSearch">
-				<NavLink to="/Search">
-					<button className="SearchButton">
-						<FontAwesomeIcon icon={faSearch} id="SearchNavIcon" />
-					</button>
-				</NavLink>
+			<div style={{ display: "flex" }}>
+				<div className="NavSearch">
+					<NavLink to="/Search">
+						<button className="SearchButton">
+							<FontAwesomeIcon
+								icon={faSearch}
+								id="SearchNavIcon"
+							/>
+						</button>
+					</NavLink>
+				</div>
+				<nav className="NavLinks">
+					<NavLink to="/Signup" className="Profile">
+						<FontAwesomeIcon icon={faUser} id="ProfileNavIcon" />
+						<nav className="SubNav">
+							<NavLink to="/Profile">
+								<FontAwesomeIcon
+									icon={faUser}
+									className="SubNavIcon"
+								/>
+								{user.username || "Username"}
+							</NavLink>
+							<NavLink to="/Signup">
+								<FontAwesomeIcon
+									icon={faHeart}
+									className="SubNavIcon"
+								/>
+								Wishlist
+							</NavLink>
+							<NavLink to="/Signup">
+								<FontAwesomeIcon
+									icon={faArrowRightFromBracket}
+									className="SubNavIcon"
+								/>
+								Logout
+							</NavLink>
+						</nav>
+					</NavLink>
+				</nav>
 			</div>
-			<nav className="NavLinks">
-				<NavLink to="/Signup" className="Profile">
-					<FontAwesomeIcon icon={faUser} id="ProfileNavIcon" />
-					<nav className="SubNav">
-						<NavLink to="/Profile">
-							<FontAwesomeIcon
-								icon={faUser}
-								className="SubNavIcon"
-							/>
-							{user.username || "Username"}
-						</NavLink>
-						<NavLink to="/Signup">
-							<FontAwesomeIcon
-								icon={faHeart}
-								className="SubNavIcon"
-							/>
-							Wishlist
-						</NavLink>
-						<NavLink to="/Signup">
-							<FontAwesomeIcon
-								icon={faArrowRightFromBracket}
-								className="SubNavIcon"
-							/>
-							Logout
-						</NavLink>
-					</nav>
-				</NavLink>
-			</nav>
 		</div>
 	);
 };

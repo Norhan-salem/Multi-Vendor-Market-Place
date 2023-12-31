@@ -1,15 +1,15 @@
-package com.nuggets.IP.web.rest;
+package com.nuggets.IP.controller.rest;
 
 
+import com.nuggets.IP.controller.rest.request.AppUserRegistrationBody;
+import com.nuggets.IP.controller.rest.request.LoginBody;
 import com.nuggets.IP.exception.AppUserAlreadyExistsException;
 import com.nuggets.IP.model.AppUser;
 import com.nuggets.IP.model.Seller;
 import com.nuggets.IP.service.AppUserService;
 import com.nuggets.IP.service.LoginService;
 import com.nuggets.IP.service.SellerService;
-import com.nuggets.IP.web.rest.request.AppUserRegistrationBody;
-import com.nuggets.IP.web.rest.request.LoginBody;
-import com.nuggets.IP.web.rest.request.SellerRegistrationBody;
+import com.nuggets.IP.controller.rest.request.SellerRegistrationBody;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

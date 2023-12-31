@@ -1,4 +1,4 @@
-package com.nuggets.IP.web.rest.security;
+package com.nuggets.IP.controller.rest.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +10,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+@SuppressWarnings("removal")
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfiguration {

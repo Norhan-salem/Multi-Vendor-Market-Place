@@ -12,7 +12,8 @@ class PriceFilter extends React.Component {
     const value = target.value;
     const name = target.name;
 
-    this.setState({
+    this.props.onPriceChange({
+      ...this.props.priceRange,
       [name]: value,
     });
   };
@@ -25,13 +26,13 @@ class PriceFilter extends React.Component {
           <input
             type='number'
             name='minPrice'
-            value={this.state.minPrice}
+            value={this.props.priceRange.minPrice}
             onChange={this.handleInputChange}
           />
           <input
             type='number'
             name='maxPrice'
-            value={this.state.maxPrice}
+            value={this.props.priceRange.maxPrice}
             onChange={this.handleInputChange}
           />
         </div>
@@ -40,7 +41,7 @@ class PriceFilter extends React.Component {
           name='minPrice'
           min='0'
           max={this.state.maxPrice}
-          value={this.state.minPrice}
+          value={this.props.priceRange.minPrice}
           onChange={this.handleInputChange}
         />
         <input
@@ -48,7 +49,7 @@ class PriceFilter extends React.Component {
           name='maxPrice'
           min={this.state.minPrice}
           max='5000'
-          value={this.state.maxPrice}
+          value={this.props.priceRange.maxPrice}
           onChange={this.handleInputChange}
         />
       </div>
@@ -58,3 +59,7 @@ class PriceFilter extends React.Component {
 }
 
 export default PriceFilter;
+
+
+
+ 
