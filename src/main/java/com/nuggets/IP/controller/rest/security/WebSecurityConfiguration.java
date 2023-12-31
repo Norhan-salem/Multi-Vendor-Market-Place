@@ -25,7 +25,8 @@ public class WebSecurityConfiguration {
     @SuppressWarnings("removal")
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().disable().cors().disable();
+        httpSecurity.cors();
+        httpSecurity.csrf().disable();
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         httpSecurity.authorizeHttpRequests((
                 authz) -> authz

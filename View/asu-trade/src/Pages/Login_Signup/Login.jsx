@@ -36,7 +36,7 @@ const Login = () => {
 			);
 
 			if (response.status === 200) {
-				Cookies.set("authenticationToken", response.data.token);
+				Cookies.set("authenticationToken", response.data.result);
 				const userData = await axios.get(
 					"http://localhost:8080/app-user",
 					{
@@ -44,7 +44,7 @@ const Login = () => {
 							username,
 						},
 						headers: {
-							Authorization: `Bearer ${response.data.token}`,
+							Authorization: `Bearer ${response.data.result}`,
 						},
 					}
 				);
