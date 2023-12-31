@@ -19,6 +19,8 @@ import Listings from "./Pages/Listings/Listings";
 import HomePage from "./Pages/HomePage/HomePage";
 import ProductPage from "./Pages/ProductPage/ProductPage";
 
+import { UserProvider } from "./Context/UserContext";
+import { ProductProvider } from "./Context/ProductContext";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -28,7 +30,10 @@ const router = createBrowserRouter(
 			<Route path="/Login" element={<Login />} />
 			<Route path="/Search" element={<Search />} />
 			<Route path="/SellerSignup" element={<Seller_Signup />} />
-			<Route path="/TermsAndConditions" element={<TermsAndConditions />} />
+			<Route
+				path="/TermsAndConditions"
+				element={<TermsAndConditions />}
+			/>
 			<Route path="/Home" element={<HomePage />} />
 			<Route path="/AddProduct" element={<ListProduct />} />
 			<Route path="/ProductPage" element={<ProductPage />} />
@@ -36,13 +41,20 @@ const router = createBrowserRouter(
 			<Route path="/Cart" element={<Cart />} />
 			<Route path="/Profile" element={<UserData />} />
 			<Route path="/Listings" element={<Listings />} />
+			<Route path="/UserData" element={<UserData/>} />
 			<Route path="/*" element={<NoPage />} />
 		</Route>
 	)
 );
 
 function App() {
-	return <RouterProvider router={router} />;
+	return (
+		<UserProvider>
+			<ProductProvider>
+				<RouterProvider router={router} />
+			</ProductProvider>
+		</UserProvider>
+	);
 }
 
 export default App;
