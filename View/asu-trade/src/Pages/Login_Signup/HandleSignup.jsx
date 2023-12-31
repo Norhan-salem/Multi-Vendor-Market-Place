@@ -1,29 +1,37 @@
 import axios from "axios";
 
 export async function handleSellerSignup(event, location, neighborhood) {
-    event.preventDefault();
-    
-        if (!location || !neighborhood) {
-          alert('Sellers must provide a location and neighborhood.');
-          return;
-        }
-        // actual seller-signup
-        try {
-            const response = await axios.post('/auth/seller-register', {
-                location: location,
-                neighborhood: neighborhood
-            });
-            console.log(response);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    
+	event.preventDefault();
 
-export async function handleSignup(event, firstname, lastname, phonenumber, password, confirmPassword, username, email) {
-    event.preventDefault();
+	if (!location || !neighborhood) {
+		alert("Sellers must provide a location and neighborhood.");
+		return;
+	}
+	// actual seller-signup
+	try {
+		const response = await axios.post("/auth/seller-register", {
+			location: location,
+			neighborhood: neighborhood,
+		});
+		console.log(response);
+	} catch (error) {
+		console.log(error);
+	}
+}
 
-    /*
+export async function handleSignup(
+	event,
+	firstname,
+	lastname,
+	phonenumber,
+	password,
+	confirmPassword,
+	username,
+	email
+) {
+	event.preventDefault();
+
+	/*
     // Check if both names are greater than 3 characters
     if (firstname.length <= 3 || lastname.length <= 3) {
         alert('Both first name and last name must be atleast 3 characters.');
@@ -71,27 +79,27 @@ export async function handleSignup(event, firstname, lastname, phonenumber, pass
         return;
     }*/
 
-    // Actual user-signup
-    try {
-        const response = await axios.post('http://localhost:8080/auth/user-register', {
-            username: username,
-            password: password,
-            email: email,
-            firstName: firstname,
-            lastName: lastname,
-            phoneNumber: phonenumber
-        });
-        console.log(response);
-        var username = document.getElementById("username").value;
-    
-        // Create user data object
-        var user = {
-            username: username
-        };
+	// Actual user-signup
+	try {
+		const response = await axios.post(
+			"http://localhost:8080/auth/user-register",
+			{
+				username: username,
+				password: password,
+				email: email,
+				firstName: firstname,
+				lastName: lastname,
+				phoneNumber: phonenumber,
+			}
+		);
+		console.log(response);
+		var username = document.getElementById("username").value;
 
-        // Save data to cookie
-        document.cookie = "userInfo=" + JSON.stringify(user);
-    } catch (error) {
-        console.log(error);
-    }
+		// Create user data object
+		var user = {
+			username: username,
+		};
+	} catch (error) {
+		console.log(error);
+	}
 }
