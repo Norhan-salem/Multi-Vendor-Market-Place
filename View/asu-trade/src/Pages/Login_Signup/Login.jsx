@@ -30,7 +30,7 @@ const Login = () => {
                 
                     // Create user data object
                     var user = {
-                        username: username
+                        username: parsedUsername
                     };
         
                     // Save data to cookie
