@@ -30,7 +30,7 @@ public class WebSecurityConfiguration {
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         httpSecurity.authorizeHttpRequests((
                 authz) -> authz
-                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated())
                         .httpBasic(withDefaults());
         return httpSecurity.build();

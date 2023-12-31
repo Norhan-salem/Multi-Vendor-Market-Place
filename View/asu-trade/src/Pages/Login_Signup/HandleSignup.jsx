@@ -1,15 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 
 export async function handleSellerSignup(event, location, neighborhood) {
 	event.preventDefault();
 
 	if (!location || !neighborhood) {
-		alert("Sellers must provide a location and neighborhood.");
+		alert('Sellers must provide a location and neighborhood.');
 		return;
 	}
 	// actual seller-signup
 	try {
-		const response = await axios.post("/auth/seller-register", {
+		const response = await axios.post('/auth/seller-register', {
 			location: location,
 			neighborhood: neighborhood,
 		});
@@ -82,7 +82,7 @@ export async function handleSignup(
 	// Actual user-signup
 	try {
 		const response = await axios.post(
-			"http://localhost:8080/auth/user-register",
+			'http://localhost:8080/auth/seller-register',
 			{
 				username: username,
 				password: password,
@@ -90,10 +90,12 @@ export async function handleSignup(
 				firstName: firstname,
 				lastName: lastname,
 				phoneNumber: phonenumber,
+				location: 'Cairo',
+				neighborhood: 'Maadi',
 			}
 		);
 		console.log(response);
-		var username = document.getElementById("username").value;
+		var username = document.getElementById('username').value;
 
 		// Create user data object
 		var user = {
