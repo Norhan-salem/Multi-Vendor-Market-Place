@@ -21,9 +21,9 @@ public class AppOrderResource {
         this.appOrderService = appOrderService;
     }
 
-    @GetMapping("/{username}")
+    @GetMapping
     public ResponseEntity<Map<String,Object>> getOrdersForUser(
-            @PathVariable("username") String username)
+            @RequestParam("username") String username)
             throws AppOrderDoesNotExistException {
 
         List<AppOrder> orders = appOrderService.getOrdersForUser(username);
