@@ -1,12 +1,12 @@
 package com.nuggets.IP.web.rest;
 
+import com.nuggets.IP.exception.AppUserDoesNotExistException;
 import com.nuggets.IP.exception.ReviewDoesNotExistException;
+import com.nuggets.IP.exception.SellerDoesNotExistException;
 import com.nuggets.IP.model.Review;
 import com.nuggets.IP.service.ReviewService;
 import com.nuggets.IP.web.rest.request.ReviewBody;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +26,7 @@ public class ReviewResource {
         this.reviewService = reviewService;
     }
     @GetMapping
-    public @ResponseBody ResponseEntity<Map<String,Object>> getAllReviews(@RequestParam("username") String username) throws ReviewDoesNotExistException {
+    public @ResponseBody ResponseEntity<Map<String,Object>> getAllReviews(@RequestParam("username") String username){
         try{
             List<Review> reviews = reviewService.getUserReviews(username);
             Map<String,Object> responseMap = new HashMap<>();
@@ -39,7 +39,7 @@ public class ReviewResource {
     }
 
     @GetMapping("/{productId}")
-    public @ResponseBody ResponseEntity<Map<String,Object>> getProductReviews(@PathVariable("productId") Long productId) throws ReviewDoesNotExistException {
+    public @ResponseBody ResponseEntity<Map<String,Object>> getProductReviews(@PathVariable("productId") Long productId){
         try{
             List<Review> reviews = reviewService.getProductReviews(productId);
             Map<String,Object> responseMap = new HashMap<>();
@@ -52,27 +52,28 @@ public class ReviewResource {
     }
 
     @GetMapping("/{sellerId}")
-    public @ResponseBody ResponseEntity<Map<String,Object>> getSellerReviews(@PathVariable("sellerId") Long sellerId) throws ReviewDoesNotExistException {
+    public @ResponseBody ResponseEntity<Map<String,Object>> getSellerReviews(@PathVariable("sellerId") Long sellerId){
         try{
             List<Review> reviews = reviewService.getSellerReviews(sellerId);
             Map<String,Object> responseMap = new HashMap<>();
             responseMap.put("result", reviews);
             return new ResponseEntity<>(responseMap, HttpStatus.OK);
         }
-        catch (ReviewDoesNotExistException e) {
+        catch (SellerDoesNotExistException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+
     }
 
     @GetMapping("/{appUserId}")
-    public @ResponseBody ResponseEntity<Map<String,Object>> getUserReviews(@PathVariable("appUserId") Long appUserId) throws ReviewDoesNotExistException {
+    public @ResponseBody ResponseEntity<Map<String,Object>> getUserReviews(@PathVariable("appUserId") Long appUserId){
         try{
             List<Review> reviews = reviewService.getReviewsByUser(appUserId);
             Map<String,Object> responseMap = new HashMap<>();
             responseMap.put("result", reviews);
             return new ResponseEntity<>(responseMap, HttpStatus.OK);
         }
-        catch (ReviewDoesNotExistException e) {
+        catch (AppUserDoesNotExistException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }

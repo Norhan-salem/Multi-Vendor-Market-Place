@@ -1,11 +1,12 @@
 package com.nuggets.IP.service;
 
+import com.nuggets.IP.exception.AppUserDoesNotExistException;
 import com.nuggets.IP.exception.ReviewDoesNotExistException;
+import com.nuggets.IP.exception.SellerDoesNotExistException;
 import com.nuggets.IP.model.Review;
 import com.nuggets.IP.web.rest.request.ReviewBody;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ReviewService {
     Review createReview(ReviewBody reviewBody);
@@ -15,7 +16,7 @@ public interface ReviewService {
 
     List<Review> getProductReviews(Long productId) throws ReviewDoesNotExistException;
 
-    List<Review> getSellerReviews(Long sellerId) throws ReviewDoesNotExistException;
+    List<Review> getSellerReviews(Long sellerId) throws SellerDoesNotExistException;
 
-    List<Review> getReviewsByUser(Long appUserId) throws ReviewDoesNotExistException;
+    List<Review> getReviewsByUser(Long appUserId) throws AppUserDoesNotExistException;
 }
