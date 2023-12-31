@@ -10,9 +10,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class CartBody {
-    @NotBlank
-    @NotNull
-    private Long cartID;
 
     @NotBlank
     @NotNull
@@ -30,23 +27,4 @@ public class CartBody {
     @NotNull
     private Integer numberOfItems;
 
-//    public void setCartTD(Long cartTD) {
-//        this.cartTD = cartTD;
-//    }
-
-//    public void setTotalPrice(Double totalPrice) {
-//        this.totalPrice = totalPrice;
-//    }
-//
-//    public void setLastUpdatedDate(LocalDate lastUpdatedDate) {
-//        this.lastUpdatedDate = lastUpdatedDate;
-//    }
-//
-//    public void setCouponCode(String couponCode) {
-//        this.couponCode = couponCode;
-//    }
-//
-//    public void setNumberOfItems(Integer numberOfItems) {
-//        this.numberOfItems = numberOfItems;
-//    }
 }

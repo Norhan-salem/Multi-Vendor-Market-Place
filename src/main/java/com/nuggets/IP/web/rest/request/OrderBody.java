@@ -12,10 +12,6 @@ import java.util.List;
 @Setter
 public class OrderBody {
 
-//    @NotNull
-//    @NotBlank
-//    private Long orderID;
-
     @NotNull
     @NotBlank
     private String status;
@@ -28,12 +24,5 @@ public class OrderBody {
     @NotBlank
     private List<Product> products;
 
-//    public OrderBody(Long orderID) {
-//        this.orderID = orderID;
-//    }
-
-//    public void setOrderID(Long orderID) {
-//        this.orderID = orderID;
-//    }
 
 }
