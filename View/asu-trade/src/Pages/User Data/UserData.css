@@ -1,26 +1,25 @@
-.UDall{
-    background-color: white;
-    width: 1128px;
-    height: 300px;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    border-radius: 8px;
-    padding: 6rem 9rem;
+.UDall {
+	background-color: white;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	border-radius: 8px;
+	padding: 6rem 9rem;
+	height: 100%;
 }
 
-.UDFChild{
-    width: 300px;
-    height: 300px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+.UDFChild {
+	width: 300px;
+	height: 300px;
+	border-radius: 8px;
+	background-color: #f9f9f9;
 }
 
-.UDSChild{
-    width: 392px;
-    height: 264px;
-    border-radius: 8px;
-    background-color: white;
-    margin-left: 24px;
+.UDSChild {
+	width: 392px;
+	height: 264px;
+	border-radius: 8px;
+	background-color: white;
+	margin-left: 24px;
 }

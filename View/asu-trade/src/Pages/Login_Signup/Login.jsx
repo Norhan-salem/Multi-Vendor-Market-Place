@@ -15,12 +15,14 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import Cookies from "js-cookie";
 import { useUser } from "../../Context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const { setUser } = useUser();
+	const navigate = useNavigate();
 
 	const handleLogin = async (event) => {
 		event.preventDefault();
@@ -36,7 +38,7 @@ const Login = () => {
 			);
 
 			if (response.status === 200) {
-				Cookies.set("authenticationToken", response.data.token);
+				Cookies.set("authenticationToken", response.data.result);
 				const userData = await axios.get(
 					"http://localhost:8080/app-user",
 					{
@@ -44,14 +46,15 @@ const Login = () => {
 							username,
 						},
 						headers: {
-							Authorization: `Bearer ${response.data.token}`,
+							Authorization: `Bearer ${response.data.result}`,
 						},
 					}
 				);
 
 				if (userData.status === 200) {
-					setUser(userData.data);
+					setUser(userData.data.result);
 				}
+				navigate("/Home");
 			}
 		} catch (error) {
 			console.log(error);

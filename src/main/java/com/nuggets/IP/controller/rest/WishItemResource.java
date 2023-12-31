@@ -11,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/wish-item")
+@CrossOrigin(origins = "http://localhost:3000")
 public class WishItemResource {
 
     @Autowired
@@ -23,19 +24,19 @@ public class WishItemResource {
         this.wishItemService = wishItemService;
     }
 
-    @PostMapping("/{username}/{productId}")
-    public ResponseEntity<Map<String, Object>> addWishItemToUser(@PathVariable("username") String username,
-                                                                 @PathVariable("productId") Long productId) throws AppUserDoesNotExistException {
+    @PostMapping
+    public ResponseEntity<Map<String, Object>> addWishItemToUser(@RequestParam("username") String username,
+                                                                 @RequestParam("productId") Long productId) throws AppUserDoesNotExistException {
         wishItemService.addWishItemToUser(username, productId);
         return ResponseEntity.ok(Map.of("result", "success"));
     }
-    @GetMapping("/{username}")
-    public ResponseEntity<Map<String, Object>> getWishItemsByUsername(@PathVariable("username") String username) throws AppUserDoesNotExistException {
+    @GetMapping
+    public ResponseEntity<Map<String, Object>> getWishItemsByUsername(@RequestParam("username") String username) throws AppUserDoesNotExistException {
         return ResponseEntity.ok(Map.of("result", wishItemService.getWishItemsByUsername(username)));
     }
-    @DeleteMapping("/{username}/{productId}")
-    public ResponseEntity<Map<String, Object>> removeWishItemFromUser(@PathVariable("username") String username,
-                                                                      @PathVariable("productId") Long productId) throws AppUserDoesNotExistException {
+    @DeleteMapping
+    public ResponseEntity<Map<String, Object>> removeWishItemFromUser(@RequestParam("username") String username,
+                                                                      @RequestParam("productId") Long productId) throws AppUserDoesNotExistException {
         wishItemService.removeWishItemFromUser(username, productId);
         return ResponseEntity.ok(Map.of("result", "success"));
     }

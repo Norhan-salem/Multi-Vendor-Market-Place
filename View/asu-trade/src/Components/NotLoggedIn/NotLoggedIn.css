@@ -1,0 +1,10 @@
+.not-logged-in {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.not-logged-in h1 {
+	color: #ff1f00;
+}

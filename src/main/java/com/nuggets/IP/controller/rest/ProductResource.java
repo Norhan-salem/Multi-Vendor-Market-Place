@@ -16,6 +16,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/product")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProductResource {
 
     @Autowired
@@ -27,7 +28,7 @@ public class ProductResource {
         this.productService = productService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public @ResponseBody ResponseEntity<Map<String,Object>> getAllProducts() {
         try {
             List<Product> products = productService.getAllProducts();
@@ -43,8 +44,6 @@ public class ProductResource {
     public @ResponseBody ResponseEntity<Map<String, Object>> createProduct(@ModelAttribute ProductBody productBody) {
         try {
             Product product = productService.createProduct(productBody);
-//            product.setImage(imageService.uploadImage(productBody.getImage()));
-//            product = productService.update(product);
             product.setImage(imageService.uploadImage(productBody.getImage(), product));
             Map<String, Object> responseMap = new HashMap<>();
             responseMap.put("result", product);
@@ -54,12 +53,24 @@ public class ProductResource {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping("/{userId}")
-    public @ResponseBody ResponseEntity<Map<String,Object>> getAllProductsByUserId(@PathVariable("userId") Long userId) {
+    @GetMapping("/user")
+    public @ResponseBody ResponseEntity<Map<String,Object>> getAllProductsByUserId(@RequestParam("userId") Long userId) {
         try {
             List<Product> products = productService.getProductsBySeller(userId);
             Map<String, Object> responseMap = new HashMap<>();
             responseMap.put("result", products);
+            return new ResponseEntity<>(responseMap, HttpStatus.OK);
+        } catch (ProductDoesNotExistException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/id")
+    public @ResponseBody ResponseEntity<Map<String,Object>> getProductById(@RequestParam("productId") Long productId){
+        try {
+            Product product = productService.getProductById(productId).orElseThrow(() -> new ProductDoesNotExistException("Product does not exist"));
+            Map<String, Object> responseMap = new HashMap<>();
+            responseMap.put("result", product);
             return new ResponseEntity<>(responseMap, HttpStatus.OK);
         } catch (ProductDoesNotExistException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

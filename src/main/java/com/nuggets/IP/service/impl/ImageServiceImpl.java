@@ -52,4 +52,15 @@ public class ImageServiceImpl implements ImageService {
             throw new ImageDoesNotExistException("Image does not exist");
         }
     }
+
+    @Override
+    public byte[] getImageByProductId(Long productId) throws ImageDoesNotExistException {
+        Optional<Image> dbImage = imageRepository.findByProduct_ProductId(productId);
+        if (dbImage.isPresent()) {
+            return ImageUtil.decompressImage(dbImage.get().getImageData());
+        }
+        else{
+            throw new ImageDoesNotExistException("Image does not exist");
+        }
+    }
 }

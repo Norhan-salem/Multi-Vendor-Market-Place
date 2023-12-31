@@ -15,26 +15,32 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/image")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ImageResource {
     @Autowired
     private ImageService imageService;
     @Autowired
-    private ProductService prodcutService;
+    private ProductService productService;
 
     @PostMapping
     public ResponseEntity<Map<String, Object>> uploadImage(@RequestParam("image") MultipartFile file,
                                                            @RequestParam("productId") Long productId) throws IOException {
-        Optional<Product> product = prodcutService.getProductById(productId);
+        Optional<Product> product = productService.getProductById(productId);
         return ResponseEntity.ok().body(Map.of("image", imageService.uploadImage(file, product.get())));
     }
 
-    @GetMapping("/info/{name}")
-    public ResponseEntity<Map<String, Object>> getInfoOfImageByName(@PathVariable String name) throws IOException, ImageDoesNotExistException {
+    @GetMapping("/info")
+    public ResponseEntity<Map<String, Object>> getInfoOfImageByName(@RequestParam("name") String name) throws IOException, ImageDoesNotExistException {
         return ResponseEntity.ok().body(Map.of("image", imageService.getInfoOfImageByName(name)));
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<Map<String, Object>> getImage(@PathVariable String name) throws IOException, ImageDoesNotExistException {
+    @GetMapping
+    public ResponseEntity<Map<String, Object>> getImage(@RequestParam("name") String name) throws IOException, ImageDoesNotExistException {
         return ResponseEntity.ok().body(Map.of("image", imageService.getImage(name)));
+    }
+
+    @GetMapping("/product")
+    public ResponseEntity<Map<String, Object>> getImageByProductId(@RequestParam("productId") Long productId) throws IOException, ImageDoesNotExistException {
+        return ResponseEntity.ok().body(Map.of("image", imageService.getImageByProductId(productId)));
     }
 }

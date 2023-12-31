@@ -7,12 +7,12 @@ import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 
-function ProfileMenu({user}) {
+function ProfileMenu({ user }) {
 	return (
 		<div className="PMcontainer">
 			<div className="PMfirst">
 				<FontAwesomeIcon className="ic" icon={faCircleUser} />
-				  {user["FirstName"]+" "+user["LastName"]}
+				  {user["firstName"] + " " + user["lastName"]}
 			</div>
 			<div className="PMsecond">
 				<NavLink to="/Profile">

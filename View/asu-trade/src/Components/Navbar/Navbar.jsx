@@ -16,26 +16,14 @@ import { NavLink } from "react-router-dom";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import logo from "../../Assets/logo.png";
 import { useState, useEffect } from "react";
+<<<<<<< HEAD
 import '../../Pages/ViewAll/ViewAll.jsx'
+=======
+import { useUser } from "../../Context/UserContext";
+>>>>>>> e39d3a49a234d33c8fc0938b10cff967b747379b
 
 const Navbar = () => {
-	const [user, setUser] = useState({ username: "Username" });
-
-	useEffect(() => {
-		// Retrieve data from cookie when component mounts
-		var retrievedCookie = document.cookie;
-		var userInfoCookie = retrievedCookie
-			.split("; ")
-			.find((row) => row.startsWith("userInfo"));
-
-		if (userInfoCookie) {
-			var username = userInfoCookie.split("=")[1];
-
-			// Update state with retrieved user data
-			setUser(username);
-		}
-	}, []);
-
+	const user = useUser();
 	return (
 		<div className="Navbar">
 			<img src={logo} alt="Logo" className="logo" />
@@ -104,9 +92,9 @@ const Navbar = () => {
 									icon={faUser}
 									className="SubNavIcon"
 								/>
-								{user.username || "Username"}
+								{user?.username || ""}
 							</NavLink>
-							<NavLink to="/Signup">
+							<NavLink to="/Wishlist">
 								<FontAwesomeIcon
 									icon={faHeart}
 									className="SubNavIcon"

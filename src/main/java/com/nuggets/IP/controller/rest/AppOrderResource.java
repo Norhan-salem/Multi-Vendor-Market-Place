@@ -12,6 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/order")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AppOrderResource {
     @Autowired
     private AppOrderService appOrderService;
@@ -20,9 +21,9 @@ public class AppOrderResource {
         this.appOrderService = appOrderService;
     }
 
-    @GetMapping("/{username}")
+    @GetMapping
     public ResponseEntity<Map<String,Object>> getOrdersForUser(
-            @PathVariable("username") String username)
+            @RequestParam("username") String username)
             throws AppOrderDoesNotExistException {
 
         List<AppOrder> orders = appOrderService.getOrdersForUser(username);
