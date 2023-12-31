@@ -1,0 +1,25 @@
+.Bigg{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 1250px;
+    height: 730px;
+    margin-left: 108px;
+}
+
+.Fchildd{
+    width: 288px;
+    height: 300px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.Smalll{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    width: 960px;
+    height: 720px;
+}

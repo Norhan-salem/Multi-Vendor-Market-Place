@@ -1,0 +1,19 @@
+.view{
+    border-radius: 8px;
+    border: 2px solid #ff1f00;
+    color: #ff1f00;
+    background-color: white;
+    text-align: center;
+    width: 98px;
+    height: 48px;
+    line-height: 48px;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.view:hover{
+    background-color: #ff1f00;
+    color: white;
+    transition: .3s;
+}
