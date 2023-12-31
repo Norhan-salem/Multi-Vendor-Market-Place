@@ -20,12 +20,12 @@ public class ImageResource {
     @Autowired
     private ImageService imageService;
     @Autowired
-    private ProductService prodcutService;
+    private ProductService productService;
 
     @PostMapping
     public ResponseEntity<Map<String, Object>> uploadImage(@RequestParam("image") MultipartFile file,
                                                            @RequestParam("productId") Long productId) throws IOException {
-        Optional<Product> product = prodcutService.getProductById(productId);
+        Optional<Product> product = productService.getProductById(productId);
         return ResponseEntity.ok().body(Map.of("image", imageService.uploadImage(file, product.get())));
     }
 
@@ -37,5 +37,10 @@ public class ImageResource {
     @GetMapping
     public ResponseEntity<Map<String, Object>> getImage(@RequestParam("name") String name) throws IOException, ImageDoesNotExistException {
         return ResponseEntity.ok().body(Map.of("image", imageService.getImage(name)));
+    }
+
+    @GetMapping("/product")
+    public ResponseEntity<Map<String, Object>> getImageByProductId(@RequestParam("productId") Long productId) throws IOException, ImageDoesNotExistException {
+        return ResponseEntity.ok().body(Map.of("image", imageService.getImageByProductId(productId)));
     }
 }
