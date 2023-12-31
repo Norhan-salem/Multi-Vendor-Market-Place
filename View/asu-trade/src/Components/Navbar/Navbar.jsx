@@ -16,7 +16,11 @@ import { NavLink } from "react-router-dom";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import logo from "../../Assets/logo.png";
 import { useState, useEffect } from "react";
+<<<<<<< HEAD
+import '../../Pages/ViewAll/ViewAll.jsx'
+=======
 import { useUser } from "../../Context/UserContext";
+>>>>>>> e39d3a49a234d33c8fc0938b10cff967b747379b
 
 const Navbar = () => {
 	const user = useUser();
@@ -25,7 +29,7 @@ const Navbar = () => {
 			<img src={logo} alt="Logo" className="logo" />
 			<nav className="NavLinks">
 				<NavLink to="/Home">Home</NavLink>
-				<NavLink to="/Signup" className="Products">
+				<NavLink to="/ViewAll" className="Products">
 					Products
 					<nav className="SubNav">
 						<NavLink to="/Signup">

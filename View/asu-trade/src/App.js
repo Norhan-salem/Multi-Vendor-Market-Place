@@ -1,9 +1,9 @@
 import "./App.css";
 import {
-	createBrowserRouter,
-	Route,
-	createRoutesFromElements,
-	RouterProvider,
+  createBrowserRouter,
+  Route,
+  createRoutesFromElements,
+  RouterProvider,
 } from "react-router-dom";
 import Login from "./Pages/Login_Signup/Login";
 import Signup from "./Pages/Login_Signup/Signup";
@@ -18,43 +18,41 @@ import UserData from "./Pages/User Data/UserData";
 import Listings from "./Pages/Listings/Listings";
 import HomePage from "./Pages/HomePage/HomePage";
 import ProductPage from "./Pages/ProductPage/ProductPage";
+import ViewAll from "./Pages/ViewAll/ViewAll";
 
 import { UserProvider } from "./Context/UserContext";
 import { ProductProvider } from "./Context/ProductContext";
 
 const router = createBrowserRouter(
-	createRoutesFromElements(
-		<Route>
-			<Route index element={<Signup />} />
-			<Route path="/Signup" element={<Signup />} />
-			<Route path="/Login" element={<Login />} />
-			<Route path="/Search" element={<Search />} />
-			<Route path="/SellerSignup" element={<Seller_Signup />} />
-			<Route
-				path="/TermsAndConditions"
-				element={<TermsAndConditions />}
-			/>
-			<Route path="/Home" element={<HomePage />} />
-			<Route path="/AddProduct" element={<ListProduct />} />
-			<Route path="/ProductPage" element={<ProductPage />} />
-			<Route path="/WishList" element={<WishList />} />
-			<Route path="/Cart" element={<Cart />} />
-			<Route path="/Profile" element={<UserData />} />
-			<Route path="/Listings" element={<Listings />} />
-			<Route path="/UserData" element={<UserData/>} />
-			<Route path="/*" element={<NoPage />} />
-		</Route>
-	)
+  createRoutesFromElements(
+    <Route>
+      <Route index element={<Signup />} />
+      <Route path="/Signup" element={<Signup />} />
+      <Route path="/Login" element={<Login />} />
+      <Route path="/Search" element={<Search />} />
+      <Route path="/SellerSignup" element={<Seller_Signup />} />
+      <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
+      <Route path="/Home" element={<HomePage />} />
+      <Route path="/AddProduct" element={<ListProduct />} />
+      <Route path="/ProductPage" element={<ProductPage />} />
+      <Route path="/WishList" element={<WishList />} />
+      <Route path="/Cart" element={<Cart />} />
+      <Route path="/Profile" element={<UserData />} />
+      <Route path="/Listings" element={<Listings />} />
+      <Route path="/ViewAll" element={<ViewAll />} />
+      <Route path="/*" element={<NoPage />} />
+    </Route>
+  )
 );
 
 function App() {
-	return (
-		<UserProvider>
-			<ProductProvider>
-				<RouterProvider router={router} />
-			</ProductProvider>
-		</UserProvider>
-	);
+  return (
+    <UserProvider>
+      <ProductProvider>
+        <RouterProvider router={router} />
+      </ProductProvider>
+    </UserProvider>
+  );
 }
 
 export default App;
