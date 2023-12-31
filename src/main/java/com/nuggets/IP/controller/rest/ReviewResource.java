@@ -26,7 +26,7 @@ public class ReviewResource {
     public ReviewResource(ReviewService reviewService) {
         this.reviewService = reviewService;
     }
-    @GetMapping
+    @GetMapping("/all")
     public @ResponseBody ResponseEntity<Map<String,Object>> getAllReviews(@RequestParam("username") String username){
         try{
             List<Review> reviews = reviewService.getUserReviews(username);
@@ -39,7 +39,7 @@ public class ReviewResource {
         }
     }
 
-    @GetMapping
+    @GetMapping("/product")
     public @ResponseBody ResponseEntity<Map<String,Object>> getProductReviews(@RequestParam("productId") Long productId){
         try{
             List<Review> reviews = reviewService.getProductReviews(productId);
@@ -52,7 +52,7 @@ public class ReviewResource {
         }
     }
 
-    @GetMapping
+    @GetMapping("/seller")
     public @ResponseBody ResponseEntity<Map<String,Object>> getSellerReviews(@RequestParam("sellerId") Long sellerId){
         try{
             List<Review> reviews = reviewService.getSellerReviews(sellerId);
@@ -66,7 +66,7 @@ public class ReviewResource {
 
     }
 
-    @GetMapping
+    @GetMapping("/user")
     public @ResponseBody ResponseEntity<Map<String,Object>> getUserReviews(@RequestParam("appUserId") Long appUserId){
         try{
             List<Review> reviews = reviewService.getReviewsByUser(appUserId);

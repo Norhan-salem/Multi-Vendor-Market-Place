@@ -28,7 +28,7 @@ public class ProductResource {
         this.productService = productService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public @ResponseBody ResponseEntity<Map<String,Object>> getAllProducts() {
         try {
             List<Product> products = productService.getAllProducts();
@@ -55,7 +55,7 @@ public class ProductResource {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping
+    @GetMapping("/user")
     public @ResponseBody ResponseEntity<Map<String,Object>> getAllProductsByUserId(@RequestParam("userId") Long userId) {
         try {
             List<Product> products = productService.getProductsBySeller(userId);
@@ -67,7 +67,7 @@ public class ProductResource {
         }
     }
 
-    @GetMapping
+    @GetMapping("/id")
     public @ResponseBody ResponseEntity<Map<String,Object>> getProductById(@RequestParam("productId") Long productId){
         try {
             Product product = productService.getProductById(productId).orElseThrow(() -> new ProductDoesNotExistException("Product does not exist"));
