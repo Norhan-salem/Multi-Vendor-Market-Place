@@ -1,5 +1,6 @@
 package com.nuggets.IP.web.rest;
 
+import com.nuggets.IP.exception.OrderNotExistsException;
 import com.nuggets.IP.model.AppOrder;
 import com.nuggets.IP.model.AppUser;
 import com.nuggets.IP.service.AppOrderService;
@@ -22,7 +23,8 @@ public class AppOrderResource {
     }
 
     @GetMapping
-    public List<AppOrder> getOrdersForUser(@AuthenticationPrincipal AppUser user) {
+    public List<AppOrder> getOrdersForUser(@AuthenticationPrincipal AppUser user) throws OrderNotExistsException
+    {
         return appOrderService.getOrdersForUser(user);
     }
 }
