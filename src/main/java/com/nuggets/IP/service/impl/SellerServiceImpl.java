@@ -5,7 +5,7 @@ import com.nuggets.IP.model.Seller;
 import com.nuggets.IP.model.repository.SellerRepository;
 import com.nuggets.IP.service.EncryptionService;
 import com.nuggets.IP.service.SellerService;
-import com.nuggets.IP.web.rest.request.SellerRegistrationBody;
+import com.nuggets.IP.controller.rest.request.SellerRegistrationBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

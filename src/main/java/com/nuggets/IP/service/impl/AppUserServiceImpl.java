@@ -1,17 +1,14 @@
 package com.nuggets.IP.service.impl;
 
 import com.nuggets.IP.exception.AppUserAlreadyExistsException;
+import com.nuggets.IP.exception.AppUserDoesNotExistException;
 import com.nuggets.IP.model.AppUser;
 import com.nuggets.IP.model.repository.AppUserRepository;
 import com.nuggets.IP.service.AppUserService;
 import com.nuggets.IP.service.EncryptionService;
-import com.nuggets.IP.service.JWTService;
-import com.nuggets.IP.web.rest.request.AppUserRegistrationBody;
-import com.nuggets.IP.web.rest.request.LoginBody;
+import com.nuggets.IP.controller.rest.request.AppUserRegistrationBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class AppUserServiceImpl implements AppUserService {
@@ -43,8 +40,13 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
-    public void deleteAppUser(Long appUserId) {
+    public void deleteAppUser(Long appUserId) throws AppUserDoesNotExistException{
         appUserRepository.deleteById(appUserId);
+    }
+
+    @Override
+    public AppUser getUserByUsername(String username) throws AppUserDoesNotExistException {
+        return appUserRepository.findByUsernameIgnoreCase(username).orElse(null);
     }
 
 }

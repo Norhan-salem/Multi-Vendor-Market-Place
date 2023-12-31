@@ -1,11 +1,11 @@
-package com.nuggets.IP.web.rest;
+package com.nuggets.IP.controller.rest;
 
+import com.nuggets.IP.controller.rest.request.ReviewBody;
 import com.nuggets.IP.exception.AppUserDoesNotExistException;
 import com.nuggets.IP.exception.ReviewDoesNotExistException;
 import com.nuggets.IP.exception.SellerDoesNotExistException;
 import com.nuggets.IP.model.Review;
 import com.nuggets.IP.service.ReviewService;
-import com.nuggets.IP.web.rest.request.ReviewBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

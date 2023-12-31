@@ -4,7 +4,7 @@ import com.nuggets.IP.exception.AppUserDoesNotExistException;
 import com.nuggets.IP.exception.ReviewDoesNotExistException;
 import com.nuggets.IP.exception.SellerDoesNotExistException;
 import com.nuggets.IP.model.Review;
-import com.nuggets.IP.web.rest.request.ReviewBody;
+import com.nuggets.IP.controller.rest.request.ReviewBody;
 
 import java.util.List;
 
