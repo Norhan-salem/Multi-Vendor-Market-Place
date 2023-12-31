@@ -52,7 +52,7 @@ const Login = () => {
 				);
 
 				if (userData.status === 200) {
-					setUser(userData.data);
+					setUser(userData.data.result);
 				}
 				navigate("/Home");
 			}

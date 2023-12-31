@@ -19,15 +19,7 @@ import { useState, useEffect } from "react";
 import { useUser } from "../../Context/UserContext";
 
 const Navbar = () => {
-	const [user, setUser] = useState({ username: "Username" });
-	const { user: currentUser } = useUser();
-
-	useEffect(() => {
-		if (currentUser) {
-			setUser(currentUser);
-		}
-	}, []);
-
+	const user = useUser();
 	return (
 		<div className="Navbar">
 			<img src={logo} alt="Logo" className="logo" />
@@ -96,7 +88,7 @@ const Navbar = () => {
 									icon={faUser}
 									className="SubNavIcon"
 								/>
-								{user.username || ""}
+								{user?.username || ""}
 							</NavLink>
 							<NavLink to="/Wishlist">
 								<FontAwesomeIcon
