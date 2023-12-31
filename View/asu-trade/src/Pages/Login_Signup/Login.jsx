@@ -3,7 +3,7 @@ import '../Login_Signup/Login_Signup.css'
 import axios from 'axios';
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faEnvelope, faKey, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import {faEnvelope, faKey, faEye, faEyeSlash, faUser } from '@fortawesome/free-solid-svg-icons'
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
@@ -56,7 +56,7 @@ const Login = () => {
                         <form onSubmit={handleLogin}>
                             <div className="login_signup_fields">
                                 <div className="input-container">
-                                    <FontAwesomeIcon icon={faEnvelope} className="input-icon"/>
+                                    <FontAwesomeIcon icon={faUser} className="input-icon"/>
                                     <input type="text" placeholder="Username" id="username" value={username} onChange={e => setUsername(e.target.value)} required></input>
                                 </div>
                                 <div className="input-container">
