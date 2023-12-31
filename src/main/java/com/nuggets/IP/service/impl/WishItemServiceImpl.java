@@ -9,6 +9,7 @@ import com.nuggets.IP.service.WishItemService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class WishItemServiceImpl implements WishItemService {
@@ -23,19 +24,28 @@ public class WishItemServiceImpl implements WishItemService {
     }
 
     @Override
-    public void addWishItemToUser(Long userId, Long ProductId) {
-        // TODO: implement wishlist adding logic
+    public void addWishItemToUser(String username, Long ProductId) throws AppUserDoesNotExistException{
+        Optional<AppUser> appUser = appUserRepository.findByUsernameIgnoreCase(username);
+        if (appUser.isPresent()) {
+            WishItem wishItem = new WishItem();
+            wishItem.getAppUsers().add(appUser.get());
+            wishItem.setProductId(ProductId);
+            wishItemRepository.save(wishItem);
+        }
+        else {
+            throw new AppUserDoesNotExistException("No User Found");
+        }
     }
 
     @Override
     public void removeWishItemFromUser(String username, Long ProductId) throws AppUserDoesNotExistException{
         AppUser appUser = appUserRepository.findByUsernameIgnoreCase(username)
                 .orElseThrow(() -> new AppUserDoesNotExistException("User not found"));
-        wishItemRepository.deleteByAppUsers(appUser);
+        appUser.getWishItems().removeIf(wishItem -> wishItem.getProductId().equals(ProductId));
     }
 
     @Override
-    public List<WishItem> getWishItemsByUserId(Long userId) {
-        return wishItemRepository.findByAppUsers_UserID(userId);
+    public List<WishItem> getWishItemsByUsername(String username) throws AppUserDoesNotExistException{
+        return wishItemRepository.findByAppUsers_Username(username);
     }
 }

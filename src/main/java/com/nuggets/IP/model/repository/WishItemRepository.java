@@ -9,7 +9,11 @@ import java.util.List;
 public interface WishItemRepository extends JpaRepository<WishItem, Long> {
     List<WishItem> findByAppUsers_UserID(Long userID);
 
-    void deleteByAppUsers(AppUser appUsers);
+
+
+    List<WishItem> findByAppUsers_Username(String username);
+
+    void deleteByProductId(Long productId);
 
 
 }

@@ -1,6 +1,7 @@
 package com.nuggets.IP.service.impl;
 
 import com.nuggets.IP.exception.AppUserAlreadyExistsException;
+import com.nuggets.IP.exception.AppUserDoesNotExistException;
 import com.nuggets.IP.model.AppUser;
 import com.nuggets.IP.model.repository.AppUserRepository;
 import com.nuggets.IP.service.AppUserService;
@@ -39,8 +40,13 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
-    public void deleteAppUser(Long appUserId) {
+    public void deleteAppUser(Long appUserId) throws AppUserDoesNotExistException{
         appUserRepository.deleteById(appUserId);
+    }
+
+    @Override
+    public AppUser getUserByUsername(String username) throws AppUserDoesNotExistException {
+        return appUserRepository.findByUsernameIgnoreCase(username).orElse(null);
     }
 
 }

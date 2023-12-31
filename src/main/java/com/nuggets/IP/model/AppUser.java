@@ -50,10 +50,18 @@ public class AppUser {
     @OneToOne(mappedBy = "appUser", cascade = CascadeType.ALL, orphanRemoval = true)
     private Cart cart;
 
-    @ManyToMany(mappedBy = "appUsers")
-    private List<WishItem> wishItems = new ArrayList<>();
+//    @ManyToMany(mappedBy = "appUsers")
+//    private List<WishItem> wishItems = new ArrayList<>();
+
 
     @Column(name = "phone_number", nullable = false, unique = true, length = 20)
     private String phoneNumber;
+
+    @ToString.Exclude
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinTable(name = "app_user_wishItems",
+            joinColumns = @JoinColumn(name = "appUser_user_id"),
+            inverseJoinColumns = @JoinColumn(name = "wishItems_product_id"))
+    private List<WishItem> wishItems = new ArrayList<>();
 
 }

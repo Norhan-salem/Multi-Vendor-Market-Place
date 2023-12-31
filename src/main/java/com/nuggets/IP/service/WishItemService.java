@@ -8,7 +8,7 @@ import lombok.With;
 import java.util.List;
 
 public interface WishItemService {
-    void addWishItemToUser(Long userId, Long ProductId);
+    void addWishItemToUser(String username, Long ProductId) throws AppUserDoesNotExistException;
     void removeWishItemFromUser(String username, Long ProductId) throws AppUserDoesNotExistException;
-    List<WishItem> getWishItemsByUserId(Long userId);
+    List<WishItem> getWishItemsByUsername(String username) throws AppUserDoesNotExistException;
 }
