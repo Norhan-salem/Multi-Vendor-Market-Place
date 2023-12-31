@@ -1,21 +1,24 @@
-.Big{
+.List{
+    padding: 6rem 9rem;
+}
+
+.LBig{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
     width: 1250px;
     height: 730px;
-    margin-left: 108px;
 }
 
-.Fchild{
+.Lchild{
     width: 288px;
     height: 300px;
     border-radius: 8px;
     background-color: #f9f9f9;
 }
 
-.Small{
+.LSmall{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -26,8 +29,6 @@
 
 .m{
     float: right;
-    margin-right: 104px;
-    margin-top: 195px;
     width: 212px;
     height: 48px;
     text-align: center;

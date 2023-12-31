@@ -1,21 +1,21 @@
-.Bigg{
+.WLBigg{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
     width: 1250px;
     height: 730px;
-    margin-left: 108px;
+    padding: 6rem 8rem;
 }
 
-.Fchildd{
+.WLFchildd{
     width: 288px;
     height: 300px;
     border-radius: 8px;
     background-color: #f9f9f9;
 }
 
-.Smalll{
+.WLSmalll{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
