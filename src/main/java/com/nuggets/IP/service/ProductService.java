@@ -18,4 +18,6 @@ public interface ProductService {
     Product update(Product product);
 
     Optional<Product> getProductById(Long productId);
+
+    List<Product> searchProduct(String keyword) throws ProductDoesNotExistException;
 }

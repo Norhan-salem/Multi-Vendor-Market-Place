@@ -63,4 +63,9 @@ public class ProductServiceImpl implements ProductService {
     public Optional<Product> getProductById(Long productId) {
         return productRepository.findById(productId);
     }
+
+    @Override
+    public List<Product> searchProduct(String keyword) {
+        return productRepository.findByNameContainsIgnoreCase(keyword);
+    }
 }

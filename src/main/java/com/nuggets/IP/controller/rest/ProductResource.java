@@ -76,4 +76,17 @@ public class ProductResource {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/search")
+    public @ResponseBody ResponseEntity<Map<String,Object>>
+    searchProduct(@RequestParam("query") String search) throws ProductDoesNotExistException{
+        try {
+            List<Product> products = productService.searchProduct(search);
+            Map<String, Object> responseMap = new HashMap<>();
+            responseMap.put("result", products);
+            return new ResponseEntity<>(responseMap, HttpStatus.OK);
+        } catch (ProductDoesNotExistException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
 }
