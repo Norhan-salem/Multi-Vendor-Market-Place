@@ -12,6 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/order")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AppOrderResource {
     @Autowired
     private AppOrderService appOrderService;

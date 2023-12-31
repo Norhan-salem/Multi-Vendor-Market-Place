@@ -1,4 +1,4 @@
-.container{
+.VAcontainer{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -8,7 +8,7 @@
     margin-left: 8px;
 }
 
-.Child{
+.VAChild{
     width: 392px;
     height: 72px;
     background-color: #f9f9f9;
@@ -35,7 +35,7 @@
     transition: .3s;
 }
 
-.buy{
+.VAbuy{
     border: none;
     background-color: transparent;
     float: right;

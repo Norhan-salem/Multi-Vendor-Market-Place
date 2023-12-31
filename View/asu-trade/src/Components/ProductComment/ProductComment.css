@@ -1,0 +1,15 @@
+.product-comment {
+	background-color: #ededed;
+	padding: 1rem;
+	margin-bottom: 0.5rem;
+	border-radius: 7px;
+}
+
+.product-comment h3 {
+	font-weight: 500;
+	font-size: 20px;
+}
+
+.product-review {
+	font-size: 16px;
+}

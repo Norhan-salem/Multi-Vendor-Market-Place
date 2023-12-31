@@ -2,7 +2,7 @@ import './CardItemButton.css'
 
 function CardItemButton(){
     return(
-        <button className='view'>
+        <button className='CDBview'>
             View Item
         </button>
     )

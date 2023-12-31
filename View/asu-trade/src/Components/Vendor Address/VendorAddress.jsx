@@ -7,36 +7,36 @@ import { faShop } from '@fortawesome/free-solid-svg-icons'
 
 function VendorAddress(){
     return(
-        <div className='container'>
+        <div className='VAcontainer'>
             Last name
-            <div className='Child'>
+            <div className='VAChild'>
                 <FontAwesomeIcon className="iconnn" icon={faUser} /> 
                  Smith
-                <button className="buy">
+                <button className="VAbuy">
                     <FontAwesomeIcon className="edit" icon={faPenToSquare} />
                 </button>
             </div>
             Username
-            <div className='Child'>
+            <div className='VAChild'>
                 <FontAwesomeIcon className="iconnn" icon={faUser} /> 
                 Jimmy Smith
-                <button className="buy">
+                <button className="VAbuy">
                     <FontAwesomeIcon className="edit" icon={faPenToSquare} />
                 </button>
             </div>
             Phone number
-            <div className='Child'>
+            <div className='VAChild'>
                 <FontAwesomeIcon className="iconnn" icon={faPhone} /> 
                 +01512312447
-                <button className="buy">
+                <button className="VAbuy">
                     <FontAwesomeIcon className="edit" icon={faPenToSquare} />
                 </button>
             </div>
             Address 
-            <div className='Child'>
+            <div className='VAChild'>
                 <FontAwesomeIcon className='iconnn' icon={faShop} /> 
                 Abdo Pasha Street 
-                <button className="buy">
+                <button className="VAbuy">
                     <FontAwesomeIcon className="edit" icon={faPenToSquare} />
                 </button>
             </div>

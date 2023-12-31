@@ -1,17 +1,17 @@
 import './OrderSummary.css'
 
-function OrderSummary(){
+function OrderSummary({Ordersummary}){
     return(
-        <div className='container'>
+        <div className='OScontainer'>
             <form className='sf'>
                 <span className='sp'>Order Summary</span> <br/><br/>
-                <label>Total: $150.25</label><br/><br/>
-                <label>Number of Items: 6</label><br/><br/>
+                <label>Total: ${Ordersummary["Price"]}</label><br/><br/>
+                <label>Number of Items: {Ordersummary["NumberOfItems"]}</label><br/><br/>
                 <label>Coupon: </label>
                 <input type='text'className='k' placeholder='Enter Eligible Code'/><br/><br/>
-                <label>Discount: $00.00</label><br/>
-            </form><br/><br/>
-            <button className='Button'>
+                <label>Discount: ${Ordersummary["Discount"]}</label><br/><br/>
+            </form><br/>
+            <button className='OSButton'>
                 Checkout
             </button>
         </div>

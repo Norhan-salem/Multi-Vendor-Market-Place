@@ -1,4 +1,4 @@
-.container{
+.OScontainer{
     width: 288px;
     height: 296px;
     font-size: 20px;
@@ -22,7 +22,7 @@
     background-color: #F9F9F9;
 }
 
-.Button{
+.OSButton{
     width: 207px;
     height: 46px;
     text-align: center;
