@@ -1,92 +1,92 @@
-.name{
-    font-size: 20px;
-    font-weight: 500;
-    color: black;
-    border: none;
+.name {
+	font-size: 20px;
+	font-weight: 500;
+	color: black;
+	border: none;
 }
 
-.Data{
-    width: 218px;
-    height: 76px;
-    font-size: 20px;
-    font-weight: 300;
-    background-color: #F9F9F9; 
-    text-align: left;
-    line-height: 76px;
-    vertical-align: middle;
-    border-color: transparent;
+.Data {
+	width: 218px;
+	height: 76px;
+	font-size: 20px;
+	font-weight: 300;
+	background-color: #f9f9f9;
+	text-align: left;
+	line-height: 76px;
+	vertical-align: middle;
+	border-color: transparent;
 }
 
-.Data:hover{
-    border-left-color: #FF1F00;
-    color: #FF1F00;
+.Data:hover {
+	border-left-color: #ff1f00;
+	color: #ff1f00;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    flex-wrap: nowrap;
-    background-color: #F9F9F9;
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	flex-wrap: nowrap;
+	background-color: #f9f9f9;
 }
 
-.first{
-    width: 213px;
-    height: 64px;
-    font-size: 20px;
-    font-weight: 500;
-    text-align: left;
-    vertical-align: middle;
-    line-height: 64px;
-    background-color: #F9F9F9;
+.first {
+	width: 213px;
+	height: 64px;
+	font-size: 20px;
+	font-weight: 500;
+	text-align: left;
+	vertical-align: middle;
+	line-height: 64px;
+	background-color: #f9f9f9;
 }
 
-.ic{
-    font-size: 40px;
-    vertical-align: middle;
-    line-height: 64px;
+.ic {
+	font-size: 40px;
+	vertical-align: middle;
+	line-height: 64px;
 }
 
-.icon{
-    font-size: 20px;
-    vertical-align: middle;
-    line-height: 76px;
-    color: black;
+.icon {
+	font-size: 20px;
+	vertical-align: middle;
+	line-height: 76px;
+	color: black;
 }
 
-.second{
-    width: 218px;
-    height: 76px;
-    line-height: 76px;
-    vertical-align: middle;
+.second {
+	width: 218px;
+	height: 76px;
+	line-height: 76px;
+	vertical-align: middle;
 }
 
-.third{
-    width: 166px;
-    height: 76px;
-    line-height: 76px;
-    vertical-align: middle;
+.third {
+	width: 166px;
+	height: 76px;
+	line-height: 76px;
+	vertical-align: middle;
 }
 
-.fourth{
-    width: 160px;
-    height: 76px;
-    line-height: 76px;
-    vertical-align: middle;
+.fourth {
+	width: 160px;
+	height: 76px;
+	line-height: 76px;
+	vertical-align: middle;
 }
 
-.col{
-    color: #C91433;
+.col {
+	color: #c91433;
 }
 
-.org{
-    color: #FF1F00;
-    line-height: 76px;
-    vertical-align: middle;
-    border-left-color: #FF1F00;
+.org {
+	color: #ff1f00;
+	line-height: 76px;
+	vertical-align: middle;
+	border-left-color: #ff1f00;
 }
 
-.plus{
-    font-size: 25px;
-    font-weight: 300;
+.plus {
+	font-size: 25px;
+	font-weight: 300;
 }
