@@ -2,7 +2,7 @@ package com.nuggets.IP.service;
 
 import com.nuggets.IP.exception.ProductDoesNotExistException;
 import com.nuggets.IP.model.Product;
-import com.nuggets.IP.web.rest.request.ProductBody;
+import com.nuggets.IP.controller.rest.request.ProductBody;
 
 import java.util.List;
 

@@ -1,11 +1,9 @@
-package com.nuggets.IP.web.rest;
+package com.nuggets.IP.controller.rest;
 
+import com.nuggets.IP.controller.rest.request.ProductBody;
 import com.nuggets.IP.exception.ProductDoesNotExistException;
-import com.nuggets.IP.exception.ReviewDoesNotExistException;
 import com.nuggets.IP.model.Product;
-import com.nuggets.IP.model.Review;
 import com.nuggets.IP.service.ProductService;
-import com.nuggets.IP.web.rest.request.ProductBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

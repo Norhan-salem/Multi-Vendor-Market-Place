@@ -1,4 +1,4 @@
-package com.nuggets.IP.web.rest.request;
+package com.nuggets.IP.controller.rest.request;
 import com.nuggets.IP.model.Product;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

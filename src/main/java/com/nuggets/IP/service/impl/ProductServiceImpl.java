@@ -1,12 +1,11 @@
 package com.nuggets.IP.service.impl;
 
 import com.nuggets.IP.exception.ProductDoesNotExistException;
-import com.nuggets.IP.exception.ReviewDoesNotExistException;
 import com.nuggets.IP.model.Product;
 import com.nuggets.IP.model.repository.ProductRepository;
 import com.nuggets.IP.model.repository.SellerRepository;
 import com.nuggets.IP.service.ProductService;
-import com.nuggets.IP.web.rest.request.ProductBody;
+import com.nuggets.IP.controller.rest.request.ProductBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

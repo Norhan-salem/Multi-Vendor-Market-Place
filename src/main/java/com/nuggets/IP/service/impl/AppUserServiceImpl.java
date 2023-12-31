@@ -5,13 +5,9 @@ import com.nuggets.IP.model.AppUser;
 import com.nuggets.IP.model.repository.AppUserRepository;
 import com.nuggets.IP.service.AppUserService;
 import com.nuggets.IP.service.EncryptionService;
-import com.nuggets.IP.service.JWTService;
-import com.nuggets.IP.web.rest.request.AppUserRegistrationBody;
-import com.nuggets.IP.web.rest.request.LoginBody;
+import com.nuggets.IP.controller.rest.request.AppUserRegistrationBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class AppUserServiceImpl implements AppUserService {

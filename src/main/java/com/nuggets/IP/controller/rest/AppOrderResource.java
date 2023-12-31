@@ -1,4 +1,4 @@
-package com.nuggets.IP.web.rest;
+package com.nuggets.IP.controller.rest;
 
 import com.nuggets.IP.exception.AppOrderDoesNotExistException;
 import com.nuggets.IP.model.AppOrder;

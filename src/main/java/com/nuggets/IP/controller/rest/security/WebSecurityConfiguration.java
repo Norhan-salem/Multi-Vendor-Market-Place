@@ -1,4 +1,4 @@
-package com.nuggets.IP.web.rest.security;
+package com.nuggets.IP.controller.rest.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

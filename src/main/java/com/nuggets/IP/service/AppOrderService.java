@@ -2,7 +2,7 @@ package com.nuggets.IP.service;
 
 import com.nuggets.IP.exception.AppOrderDoesNotExistException;
 import com.nuggets.IP.model.AppOrder;
-import com.nuggets.IP.web.rest.request.OrderBody;
+import com.nuggets.IP.controller.rest.request.OrderBody;
 
 import java.util.List;
 public interface AppOrderService {

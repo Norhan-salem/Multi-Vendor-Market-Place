@@ -1,4 +1,4 @@
-package com.nuggets.IP.web.rest.request;
+package com.nuggets.IP.controller.rest.request;
 
 import jakarta.validation.constraints.*;
 import lombok.Getter;
