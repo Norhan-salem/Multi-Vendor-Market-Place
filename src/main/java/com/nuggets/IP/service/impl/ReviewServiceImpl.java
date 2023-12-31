@@ -1,7 +1,10 @@
 package com.nuggets.IP.service.impl;
 
+import com.nuggets.IP.exception.AppUserDoesNotExistException;
 import com.nuggets.IP.exception.ReviewDoesNotExistException;
+import com.nuggets.IP.exception.SellerDoesNotExistException;
 import com.nuggets.IP.model.Review;
+import com.nuggets.IP.model.repository.AppUserRepository;
 import com.nuggets.IP.model.repository.ProductRepository;
 import com.nuggets.IP.model.repository.ReviewRepository;
 import com.nuggets.IP.model.repository.SellerRepository;
@@ -11,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
@@ -22,6 +24,9 @@ public class ReviewServiceImpl implements ReviewService {
     private final ProductRepository productRepository;
     @Autowired
     private final SellerRepository sellerRepository;
+
+    @Autowired
+    private AppUserRepository appUserRepository;
 
     public ReviewServiceImpl(ReviewRepository reviewRepository, ProductRepository productRepository,
                              SellerRepository sellerRepository) {
@@ -41,6 +46,7 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public Review editReview(ReviewBody reviewBody) {
+//        TODO: test this
         Review review = new Review();
         review.setComment(reviewBody.getComment());
         review.setRating(reviewBody.getRating());
@@ -60,17 +66,19 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<Review> getProductReviews(Long productId) throws ReviewDoesNotExistException {
-        return reviewRepository.findByProductReview_Id(productId).orElseThrow(() -> new ReviewDoesNotExistException("Review does not exist"));
+    public List<Review> getProductReviews(Long productId){
+//        TODO: test this
+        return reviewRepository.findByProductReview_ProductId(productId);
     }
 
     @Override
-    public List<Review> getSellerReviews(Long sellerId) throws ReviewDoesNotExistException {
-        return reviewRepository.findBySeller_Id(sellerId).orElseThrow(() -> new ReviewDoesNotExistException("Review does not exist"));
+    public List<Review> getSellerReviews(Long sellerId) throws SellerDoesNotExistException {
+//        TODO: test this
+        return reviewRepository.findBySeller_ReceivedReviews_Seller(sellerRepository.findById(sellerId).orElseThrow(() -> new SellerDoesNotExistException("Seller does not exist")));
     }
 
     @Override
-    public List<Review> getReviewsByUser(Long appUserId) throws ReviewDoesNotExistException {
-        return reviewRepository.findByAppUser_Id(appUserId).orElseThrow(() -> new ReviewDoesNotExistException("Review does not exist"));
+    public List<Review> getReviewsByUser(Long appUserId) throws AppUserDoesNotExistException {
+        return reviewRepository.findByAppUser_Reviews_AppUser(appUserRepository.findById(appUserId).orElseThrow(() -> new AppUserDoesNotExistException("User does not exist")));
     }
 }

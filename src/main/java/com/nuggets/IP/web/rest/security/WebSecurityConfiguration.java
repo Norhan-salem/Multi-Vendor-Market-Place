@@ -10,6 +10,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+@SuppressWarnings("removal")
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfiguration {
