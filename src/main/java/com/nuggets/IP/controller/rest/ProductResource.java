@@ -44,8 +44,6 @@ public class ProductResource {
     public @ResponseBody ResponseEntity<Map<String, Object>> createProduct(@ModelAttribute ProductBody productBody) {
         try {
             Product product = productService.createProduct(productBody);
-//            product.setImage(imageService.uploadImage(productBody.getImage()));
-//            product = productService.update(product);
             product.setImage(imageService.uploadImage(productBody.getImage(), product));
             Map<String, Object> responseMap = new HashMap<>();
             responseMap.put("result", product);
