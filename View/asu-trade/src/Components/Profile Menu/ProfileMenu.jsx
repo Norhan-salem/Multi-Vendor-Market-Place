@@ -7,14 +7,14 @@ import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 
-function ProfileMenu() {
+function ProfileMenu({user}) {
 	return (
-		<div className="container">
-			<div className="first">
+		<div className="PMcontainer">
+			<div className="PMfirst">
 				<FontAwesomeIcon className="ic" icon={faCircleUser} />
-				   Nasser Mohame
+				  {user["FirstName"]+" "+user["LastName"]}
 			</div>
-			<div className="second">
+			<div className="PMsecond">
 				<NavLink to="/Profile">
 					<button className="Data org">
 						<FontAwesomeIcon className="icon" icon={faUserPen} />
@@ -23,7 +23,7 @@ function ProfileMenu() {
 					</button>
 				</NavLink>
 			</div>
-			<div className="third">
+			<div className="PMthird">
 				<NavLink to="/Wishlist">
 					<button className="Data">
 						<FontAwesomeIcon className="icon" icon={faHeart} />
@@ -31,7 +31,7 @@ function ProfileMenu() {
 					</button>
 				</NavLink>
 			</div>
-			<div className="third">
+			<div className="PMthird">
 				<NavLink to="/Cart">
 					<button className="Data">
 						<FontAwesomeIcon icon={faBagShopping} />
@@ -39,13 +39,13 @@ function ProfileMenu() {
 					</button>
 				</NavLink>
 			</div>
-			<div className="third">
+			<div className="PMthird">
 				<button className="Data">
 					<span className="plus">+</span>
 					   Register as Vendor
 				</button>
 			</div>
-			<div className="fourth">
+			<div className="PMfourth">
 				<button className="Data">
 					<FontAwesomeIcon
 						className="icon"

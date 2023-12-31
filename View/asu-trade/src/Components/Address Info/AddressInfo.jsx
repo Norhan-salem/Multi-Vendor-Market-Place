@@ -4,31 +4,31 @@ import { faUser } from "@fortawesome/free-solid-svg-icons"
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons"
 import { faPhone } from "@fortawesome/free-solid-svg-icons"
 
-function AddressInfo(){
+function AddressInfo({user}){
     return(
-        <div className='container'>
+        <div className='AIcontainer'>
             Last name
-            <div className='Child'>
+            <div className='AIChild'>
                 <FontAwesomeIcon className="iconnn" icon={faUser} /> 
-                 Smith
-                <button className="buy">
-                    <FontAwesomeIcon className="edit" icon={faPenToSquare} />
+                 {user["LastName"]}
+                <button className="AIbuy">
+                    <FontAwesomeIcon className="editt" icon={faPenToSquare} />
                 </button>
             </div>
             Username
-            <div className='Child'>
+            <div className='AIChild'>
                 <FontAwesomeIcon className="iconnn" icon={faUser} /> 
-                Jimmy Smith
-                <button className="buy">
-                    <FontAwesomeIcon className="edit" icon={faPenToSquare} />
+                {user["UserName"]}
+                <button className="AIbuy">
+                    <FontAwesomeIcon className="editt" icon={faPenToSquare} />
                 </button>
             </div>
             Phone number
-            <div className='Child'>
+            <div className='AIChild'>
                 <FontAwesomeIcon className="iconnn" icon={faPhone} /> 
-                +01512312447
-                <button className="buy">
-                    <FontAwesomeIcon className="edit" icon={faPenToSquare} />
+                {user["PhoneNumber"]}
+                <button className="AIbuy">
+                    <FontAwesomeIcon className="editt" icon={faPenToSquare} />
                 </button>
             </div>
         </div>

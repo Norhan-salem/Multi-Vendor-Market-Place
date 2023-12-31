@@ -1,27 +1,57 @@
-import './Listings.css'
-import CardItem from '../../Components/Card Item/CardItem'
-import VendorProfile from '../../Components/Vendor Profile/VendorProfile'
+import './Listings.css';
+import CardItem from '../../Components/Card Item/CardItem';
+import VendorProfile from '../../Components/Vendor Profile/VendorProfile';
+import Navbar from '../../Components/Navbar/Navbar';
+import LP from "../../Assets/Laptops.png";
 
 function Listings(){
+
+    const Listings = [
+        {
+            img: LP,
+            title: "APPLE iPad Pro 11” M2 Chip (4th Generation) Wi-Fi 128GB Silver",
+        },
+        {
+            img: LP,
+            title: "APPLE iPad Pro 11” M2 Chip (4th Generation) Wi-Fi 128GB Silver",
+        },
+        {
+            img: LP,
+            title: "APPLE iPad Pro 11” M2 Chip (4th Generation) Wi-Fi 128GB Silver",
+        },
+        {
+            img: LP,
+            title: "APPLE iPad Pro 11” M2 Chip (4th Generation) Wi-Fi 128GB Silver",
+        },
+        {
+            img: LP,
+            title: "APPLE iPad Pro 11” M2 Chip (4th Generation) Wi-Fi 128GB Silver",
+        },
+        {
+            img: LP,
+            title: "APPLE iPad Pro 11” M2 Chip (4th Generation) Wi-Fi 128GB Silver",
+        },
+    ];
+
     return(
-        <div>
+        <>
+            <Navbar/>
+            <div className='List'>
             <button className='m'>
-                Add Product
-            </button>
-            <div className='Big'>
-                <div className='Fchild'>
-                    <VendorProfile/>
+                            List Item
+                        </button>
+                <div className='LBig'>
+                    <div className='Lchild'>
+                        <VendorProfile/>
+                    </div>
+                    <div className='LSmall'>
+                        {Listings.map((data, index) => {
+                            return <CardItem data={data} key={index} />;
+                        })}
+                    </div>
                 </div>
-                <div className='Small'>
-                    <div><CardItem/></div>
-                    <div><CardItem/></div>
-                    <div><CardItem/></div>
-                    <div><CardItem/></div>
-                    <div><CardItem/></div>
-                    <div><CardItem/></div>
-                </div>
-            </div>
-        </div>
+</div>
+        </>
     )
 }
 

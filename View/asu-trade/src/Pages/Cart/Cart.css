@@ -1,21 +1,20 @@
-.Big{
+.CBig{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: nowrap;
     width: 1250px;
     height: 730px;
-    margin-left: 108px;
-    margin-top: 200px;
+    padding: 6rem 9rem;
 }
 
-.Fchild{
+.Cchild{
     width: 288px;
     height: 300px;
     border-radius: 8px;
 }
 
-.Small{
+.CSmall{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -24,7 +23,7 @@
     height: 720px;
 }
 
-.summ{
+.Csumm{
     width: 288px;
     height: 296px;
     margin-left: 30px;
