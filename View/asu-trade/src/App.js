@@ -13,7 +13,6 @@ import NoPage from './Pages/NoPage/NoPage';
 import TermsAndConditions from './Pages/TermsAndConditions/TermsAndConditions';
 import WishList from './Pages/Wish List/WishList';
 import Cart from './Pages/Cart/Cart';
-import TermsAndConditions from "./Pages/TermsAndConditions/TermsAndConditions";
 import HomePage from "./Pages/HomePage/HomePage";
 import ListProduct from "./Pages/ListProduct/ListProduct";
 
