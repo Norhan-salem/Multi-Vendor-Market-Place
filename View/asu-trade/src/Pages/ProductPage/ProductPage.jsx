@@ -25,6 +25,14 @@ const product = {
 			user: "queen sasa",
 			review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam in, ratione labore voluptatibus voluptates at sed expedita natus officia est tempore molestias iure blanditiis, reprehenderit, ex eos praesentium",
 		},
+		{
+			user: "queen sasa",
+			review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam in, ratione labore voluptatibus voluptates at sed expedita natus officia est tempore molestias iure blanditiis, reprehenderit, ex eos praesentium",
+		},
+		{
+			user: "queen sasa",
+			review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam in, ratione labore voluptatibus voluptates at sed expedita natus officia est tempore molestias iure blanditiis, reprehenderit, ex eos praesentium",
+		},
 	],
 };
 
